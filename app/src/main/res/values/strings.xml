@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">QLSach</string>
+    <string name="login_hint_enter_username">Username</string>
+    <string name="login_hint_enter_password">Password</string>
+    <string name="login_checkbox">Lưu mật khẩu</string>
+    <string name="login_btn_login">Đăng nhập</string>
+    <string name="login_forgotpass">Quên mật khẩu?</string>
+    <string name="login_or">Hoặc</string>
+    <string name="login_btn_Signup">Tạo tài khoản mới</string>
+    <string name="forgotpass_phonenumber">Số điện thoại đăng ký</string>
+    <string name="forgotpas_newPassword">Nhập mật khẩu mới</string>
+    <string name="forgotpass_confirmPassword">Xác nhận mật khẩu</string>
+    <string name="forgotpass_savePass">Lưu mật khẩu</string>
+    <string name="forgotpass_back">Quay lại</string>
+    <string name="login_hint_enter_confirmpassword">Confirm Password</string>
+    <string name="Signup_btnSignup">Đăng ký</string>
+    <string name="menu_title_QLnguoidung">Quản lý người dùng</string>
+    <string name="menu_title_QLtheloai">Quản lý thể loại Sách</string>
+    <string name="menu_title_QLsach">Quản lý Sách</string>
+    <string name="menu_title_QLhoadon">Quản lý hóa đơn</string>
+    <string name="menu_title_Thongke">Thống kê</string>
+    <string name="menu_title_Sachbanchay">Sách bán chạy</string>
+    <string name="menu_title_Dangxuat">Đăng xuất</string>
+</resources>

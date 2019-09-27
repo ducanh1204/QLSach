@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:title="@string/menu_title_QLnguoidung"
+        android:id="@+id/menu_ql_nguoidung"/>
+    <item
+        android:title="@string/menu_title_QLtheloai"
+        android:id="@+id/menu_ql_theloai"/>
+    <item
+        android:title="@string/menu_title_QLsach"
+        android:id="@+id/menu_ql_sach"/>
+    <item
+        android:title="@string/menu_title_QLhoadon"
+        android:id="@+id/menu_ql_hoadon"/>
+    <item
+        android:title="@string/menu_title_Thongke"
+        android:id="@+id/menu_thongke"/>
+    <item
+        android:title="@string/menu_title_Sachbanchay"
+        android:id="@+id/menu_sachbanchay"/>
+    <item
+        android:title="@string/menu_title_Dangxuat"
+        android:id="@+id/menu_dangxuat"/>
+</menu>
