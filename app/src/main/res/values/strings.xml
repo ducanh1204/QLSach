@@ -21,4 +21,7 @@
     <string name="menu_title_Thongke">Thống kê</string>
     <string name="menu_title_Sachbanchay">Sách bán chạy</string>
     <string name="menu_title_Dangxuat">Đăng xuất</string>
+    <string name="dauhaicham">:</string>
+    <string name="TLSach_titleMaTL">Mã</string>
+    <string name="TLSach_titleTenTL">Tên</string>
 </resources>

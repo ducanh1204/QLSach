@@ -7,4 +7,5 @@
     <color name="login_forgotpass">#ff0000</color>
     <color name="login_hr">#707070</color>
     <color name="login_signup">#428f10</color>
+    <color name="textblack">#000000</color>
 </resources>

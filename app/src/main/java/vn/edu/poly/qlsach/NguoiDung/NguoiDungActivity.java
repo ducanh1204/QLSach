@@ -1,10 +1,6 @@
-package vn.edu.poly.qlsach.Activity;
+package vn.edu.poly.qlsach.NguoiDung;
 
 
-import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -17,9 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.edu.poly.qlsach.Adapter.NguoiDungAdapter;
-import vn.edu.poly.qlsach.BaseActivity;
-import vn.edu.poly.qlsach.Model.Nguoidung;
+import vn.edu.poly.qlsach.Home.BaseActivity;
 import vn.edu.poly.qlsach.R;
 
 public class NguoiDungActivity extends BaseActivity {
@@ -40,17 +34,11 @@ public class NguoiDungActivity extends BaseActivity {
         rvList=findViewById(R.id.rvListNguoidung);
         nguoidungList = new ArrayList<>();
         for (int i = 0; i < 11; i++) {
-            Nguoidung nguoidung = new Nguoidung();
-            nguoidung.setName("Đức Anh");
-            nguoidung.setId("ph08650");
-            nguoidung.setAddress("Hải Dương");
-            nguoidung.setPassword("anhndph");
-            nguoidung.setPhonenumber("0123456789");
-            nguoidungList.add(nguoidung);
+            nguoidungList.add(new Nguoidung("865012014","Đức Anh","ducanh","0355740828","Hải Dương"));
         }
 
         rvList.setHasFixedSize(true);
-        nguoiDungAdapter = new NguoiDungAdapter(nguoidungList,this);
+        nguoiDungAdapter = new NguoiDungAdapter(this,nguoidungList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvList.setLayoutManager(linearLayoutManager);
 

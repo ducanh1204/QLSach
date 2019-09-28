@@ -1,4 +1,4 @@
-package vn.edu.poly.qlsach.Adapter;
+package vn.edu.poly.qlsach.NguoiDung;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -16,24 +15,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import vn.edu.poly.qlsach.Model.Nguoidung;
 import vn.edu.poly.qlsach.R;
 
 public class NguoiDungAdapter extends RecyclerView.Adapter<NguoiDungAdapter.NguoiDungHolder> {
 
 
-    List<Nguoidung> nguoidungList;
     Context context;
+    List<Nguoidung> nguoidungList;
 
-    public NguoiDungAdapter(List<Nguoidung> nguoidungList,Context context) {
+    public NguoiDungAdapter(Context context, List<Nguoidung> nguoidungList) {
+        this.context = context;
         this.nguoidungList = nguoidungList;
-        this.context=context;
     }
 
     @NonNull
     @Override
     public NguoiDungHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_nguoidung,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.row_nguoidung,parent,false);
 
         return new NguoiDungHolder(view);
     }
@@ -42,7 +40,7 @@ public class NguoiDungAdapter extends RecyclerView.Adapter<NguoiDungAdapter.Nguo
     public void onBindViewHolder(@NonNull NguoiDungHolder holder, final int position) {
 
         holder.tvuserName.setText(nguoidungList.get(position).getName());
-        holder.tvohoneNumber.setText(nguoidungList.get(position).getPhonenumber());
+        holder.tvohoneNumber.setText(nguoidungList.get(position).getPhoneNumber());
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

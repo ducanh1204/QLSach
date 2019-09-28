@@ -1,8 +1,8 @@
-package vn.edu.poly.qlsach.Activity;
+package vn.edu.poly.qlsach.Login;
 
 import android.view.View;
 
-import vn.edu.poly.qlsach.BaseActivity;
+import vn.edu.poly.qlsach.Home.BaseActivity;
 import vn.edu.poly.qlsach.R;
 
 public class ForgorPaswordActivity extends BaseActivity {

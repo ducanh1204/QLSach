@@ -1,4 +1,4 @@
-package vn.edu.poly.qlsach;
+package vn.edu.poly.qlsach.Home;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,27 +1,20 @@
-package vn.edu.poly.qlsach.Model;
+package vn.edu.poly.qlsach.NguoiDung;
 
 public class Nguoidung {
-    String name;
+
+
     String id;
+    String name;
     String password;
-    String phonenumber;
+    String phoneNumber;
     String address;
 
-    public Nguoidung(String name, String id, String password, String phonenumber, String address) {
-        this.name = name;
+    public Nguoidung(String id, String name, String password, String phoneNumber, String address) {
         this.id = id;
-        this.password = password;
-        this.phonenumber = phonenumber;
-        this.address = address;
-    }
-    public Nguoidung() {}
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
     }
 
     public String getId() {
@@ -32,6 +25,14 @@ public class Nguoidung {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -40,12 +41,12 @@ public class Nguoidung {
         this.password = password;
     }
 
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getAddress() {
