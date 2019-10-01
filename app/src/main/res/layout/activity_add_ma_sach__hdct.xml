@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="160dp"
-        android:hint="@string/add_Sach_hint_maTLSach" />
+        android:hint="@string/add_HDCT_hint_maSach" />
 
     <androidx.appcompat.widget.AppCompatSpinner
         android:layout_width="match_parent"

@@ -9,20 +9,59 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Sach.Add_GiaBiaActivity"
-            android:parentActivityName=".Sach.SachActivity"></activity>
-        <activity android:name=".Sach.Add_SoLuongSachActivity"
+        <activity android:name=".ThongKe.ThongKeActivity"
+            android:parentActivityName=".Home.HomeActivity"></activity>
+        <activity
+            android:name=".SachBanChay.SachBanChayActivity"
+            android:parentActivityName=".Home.HomeActivity" />
+        <activity
+            android:name=".HoaDonChiTiet.ThongTinHDCTActivity"
+            android:parentActivityName=".HoaDon.HoaDonActivity" />
+        <activity
+            android:name=".HoaDonChiTiet.Add_Soluong_HDCTActivity"
+            android:parentActivityName=".HoaDon.HoaDonActivity" />
+        <activity
+            android:name=".HoaDonChiTiet.Add_maSach_HDCTActivity"
+            android:parentActivityName=".HoaDon.HoaDonActivity" />
+        <activity
+            android:name=".HoaDonChiTiet.Add_maHD_HDCTActivity"
+            android:parentActivityName=".HoaDon.HoaDonActivity" />
+        <activity
+            android:name=".HoaDonChiTiet.Add_maHDCTActivity"
+            android:parentActivityName=".HoaDon.HoaDonActivity" />
+        <activity
+            android:name=".HoaDon.Add_dateHDActivity"
+            android:parentActivityName=".HoaDon.HoaDonActivity" />
+        <activity
+            android:name=".HoaDon.Add_MaHDActivity"
+            android:parentActivityName=".HoaDon.HoaDonActivity" />
+        <activity
+            android:name=".HoaDon.ThongTinHDActivityActivity"
+            android:parentActivityName=".HoaDon.HoaDonActivity" />
+        <activity
+            android:name=".HoaDon.HoaDonActivity"
+            android:parentActivityName=".Home.HomeActivity" />
+        <activity
+            android:name=".Sach.Add_GiaBiaActivity"
             android:parentActivityName=".Sach.SachActivity" />
-        <activity android:name=".Sach.Add_NXBSachActivity"
-            android:parentActivityName=".Sach.SachActivity"/>
-        <activity android:name=".Sach.Add_TacGiaActivity"
-            android:parentActivityName=".Sach.SachActivity"/>
-        <activity android:name=".Sach.Add_TenSachActivity"
-            android:parentActivityName=".Sach.SachActivity"/>
-        <activity android:name=".Sach.Add_maTLSachActivity"
-            android:parentActivityName=".Sach.SachActivity"/>
-        <activity android:name=".Sach.Add_MaSachActivity"
-            android:parentActivityName=".Sach.SachActivity"/>
+        <activity
+            android:name=".Sach.Add_SoLuongSachActivity"
+            android:parentActivityName=".Sach.SachActivity" />
+        <activity
+            android:name=".Sach.Add_NXBSachActivity"
+            android:parentActivityName=".Sach.SachActivity" />
+        <activity
+            android:name=".Sach.Add_TacGiaActivity"
+            android:parentActivityName=".Sach.SachActivity" />
+        <activity
+            android:name=".Sach.Add_TenSachActivity"
+            android:parentActivityName=".Sach.SachActivity" />
+        <activity
+            android:name=".Sach.Add_maTLSachActivity"
+            android:parentActivityName=".Sach.SachActivity" />
+        <activity
+            android:name=".Sach.Add_MaSachActivity"
+            android:parentActivityName=".Sach.SachActivity" />
         <activity
             android:name=".Sach.ThongTinSachActivity"
             android:parentActivityName=".Sach.SachActivity" />

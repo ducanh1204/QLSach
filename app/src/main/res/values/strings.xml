@@ -58,4 +58,18 @@
     <string name="add_Sach_hint_enter_nxbSach">Nhập NXB Sách</string>
     <string name="add_Sach_hint_enter_soluongSach">Nhập số lượng Sách</string>
     <string name="add_Sach_hint_enter_giaSach">Nhập giá Sách</string>
+    <string name="addHDCT">Thêm hóa đơn chi tiết</string>
+    <string name="HoaDon_title_Date">Ngày mua</string>
+    <string name="inforHD_hint_enter_maHD">Mã hóa đơn</string>
+    <string name="inforHD_hint_enter_tvDate">Ngày mua</string>
+    <string name="add_maHD_hint_enter_maHD">Nhập mã hóa đơn</string>
+    <string name="add_HDCT_hint_enter_maHDCT">Nhập mã hóa đơn chi tiết</string>
+    <string name="inforBook_maTLSach">Mã thể loại Sách</string>
+    <string name="add_Sach_hint_maTLSach">Chọn mã thể loại Sách</string>
+    <string name="add_HDCT_hint_maHD">Chọn mã hóa đơn</string>
+    <string name="add_HDCT_hint_maSach">Chọn mã Sách</string>
+    <string name="add_HDCT_hint_enter_soluong">Nhập số lượng</string>
+    <string name="inforHDCT_hint_enter_maHDCT">Mã hóa đơn chi tiết</string>
+    <string name="HDCT_thanhtien">Thành tiền :</string>
+    <string name="SachBanChay_title">Top Sách bán chạy trong tuần này</string>
 </resources>
