@@ -9,11 +9,65 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TheloaiSach.TheLoaiSashActivity"
-            android:parentActivityName=".Home.HomeActivity"></activity>
+        <activity android:name=".Sach.Add_GiaBiaActivity"
+            android:parentActivityName=".Sach.SachActivity"></activity>
+        <activity android:name=".Sach.Add_SoLuongSachActivity"
+            android:parentActivityName=".Sach.SachActivity" />
+        <activity android:name=".Sach.Add_NXBSachActivity"
+            android:parentActivityName=".Sach.SachActivity"/>
+        <activity android:name=".Sach.Add_TacGiaActivity"
+            android:parentActivityName=".Sach.SachActivity"/>
+        <activity android:name=".Sach.Add_TenSachActivity"
+            android:parentActivityName=".Sach.SachActivity"/>
+        <activity android:name=".Sach.Add_maTLSachActivity"
+            android:parentActivityName=".Sach.SachActivity"/>
+        <activity android:name=".Sach.Add_MaSachActivity"
+            android:parentActivityName=".Sach.SachActivity"/>
+        <activity
+            android:name=".Sach.ThongTinSachActivity"
+            android:parentActivityName=".Sach.SachActivity" />
+        <activity
+            android:name=".Sach.SachActivity"
+            android:parentActivityName=".Home.HomeActivity" />
+        <activity
+            android:name=".TheloaiSach.Add_MotaTLActivity"
+            android:parentActivityName=".TheloaiSach.TheLoaiSashActivity" />
+        <activity
+            android:name=".TheloaiSach.Add_ViTriTLActivity"
+            android:parentActivityName=".TheloaiSach.TheLoaiSashActivity" />
+        <activity
+            android:name=".TheloaiSach.Add_TenTLActivity"
+            android:parentActivityName=".TheloaiSach.TheLoaiSashActivity" />
+        <activity
+            android:name=".TheloaiSach.Add_MaTLActivity"
+            android:parentActivityName=".TheloaiSach.TheLoaiSashActivity" />
+        <activity
+            android:name=".TheloaiSach.ThongTinTheLoaiActivity"
+            android:parentActivityName=".TheloaiSach.TheLoaiSashActivity" />
+        <activity
+            android:name=".NguoiDung.Add_AddressActivity"
+            android:parentActivityName=".NguoiDung.NguoiDungActivity" />
+        <activity
+            android:name=".NguoiDung.Add_PhoneActivity"
+            android:parentActivityName=".NguoiDung.NguoiDungActivity" />
+        <activity
+            android:name=".NguoiDung.Add_PasswordActivity"
+            android:parentActivityName=".NguoiDung.NguoiDungActivity" />
+        <activity
+            android:name=".NguoiDung.Add_UsernameActivity"
+            android:parentActivityName=".NguoiDung.NguoiDungActivity" />
+        <activity
+            android:name=".NguoiDung.Add_NameActivity"
+            android:parentActivityName=".NguoiDung.NguoiDungActivity" />
+        <activity
+            android:name=".NguoiDung.ThongTinNguoiDungActivity"
+            android:parentActivityName=".NguoiDung.NguoiDungActivity" />
+        <activity
+            android:name=".TheloaiSach.TheLoaiSashActivity"
+            android:parentActivityName=".Home.HomeActivity" />
         <activity
             android:name=".NguoiDung.NguoiDungActivity"
-            android:parentActivityName=".Home.HomeActivity"></activity>
+            android:parentActivityName=".Home.HomeActivity" />
         <activity android:name=".Home.HomeActivity" />
         <activity
             android:name=".Login.SignupActivity"

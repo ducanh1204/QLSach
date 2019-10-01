@@ -3,6 +3,7 @@ package vn.edu.poly.qlsach.NguoiDung;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,7 @@ public class NguoiDungAdapter extends RecyclerView.Adapter<NguoiDungAdapter.Nguo
     @NonNull
     @Override
     public NguoiDungHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.row_nguoidung,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.row_nguoidung, parent, false);
 
         return new NguoiDungHolder(view);
     }
@@ -63,6 +64,13 @@ public class NguoiDungAdapter extends RecyclerView.Adapter<NguoiDungAdapter.Nguo
                 alertDialog.show();
             }
         });
+        holder.imgEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ThongTinNguoiDungActivity.class);
+                context.startActivity(intent);
+            }
+        });
 
     }
 
@@ -72,15 +80,18 @@ public class NguoiDungAdapter extends RecyclerView.Adapter<NguoiDungAdapter.Nguo
     }
 
     public class NguoiDungHolder extends RecyclerView.ViewHolder {
-        TextView tvuserName,tvohoneNumber;
-        ImageView imgEdit,imgDelete;
+        TextView tvuserName, tvohoneNumber;
+        ImageView imgEdit, imgDelete;
         CardView cardView;
+
         public NguoiDungHolder(@NonNull View itemView) {
             super(itemView);
             tvohoneNumber = itemView.findViewById(R.id.tvphoneNumber);
             tvuserName = itemView.findViewById(R.id.tvuserName);
-            imgEdit = itemView.findViewById(R.id.imgEdit);
-            imgDelete = itemView.findViewById(R.id.imgDelete);
+            imgEdit = itemView.findViewById(R.id.imgEditUser);
+            imgDelete = itemView.findViewById(R.id.imgDeleteUser);
+
         }
+
     }
 }

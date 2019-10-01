@@ -1,13 +1,14 @@
 package vn.edu.poly.qlsach.NguoiDung;
 
 public class Nguoidung {
+    public Nguoidung() {
+    }
 
-
-    String id;
-    String name;
-    String password;
-    String phoneNumber;
-    String address;
+    public String id;
+    public String name;
+    public String password;
+    public String phoneNumber;
+    public String address;
 
     public Nguoidung(String id, String name, String password, String phoneNumber, String address) {
         this.id = id;

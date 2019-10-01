@@ -30,15 +30,20 @@ public class NguoiDungActivity extends BaseActivity {
 
     @Override
     public void initView() {
-
         rvList=findViewById(R.id.rvListNguoidung);
+        fab = findViewById(R.id.fabnguoiDung);
+
         nguoidungList = new ArrayList<>();
-        for (int i = 0; i < 11; i++) {
-            nguoidungList.add(new Nguoidung("865012014","Đức Anh","ducanh","0355740828","Hải Dương"));
+        for(int i=0;i<10;i++){
+            nguoidungList.add(new Nguoidung("ducanh","ducanh","Ducanh1204","0355740828","HD"));
         }
 
-        rvList.setHasFixedSize(true);
+
         nguoiDungAdapter = new NguoiDungAdapter(this,nguoidungList);
+
+//        Toast.makeText(this,nguoidungList.size()+"",Toast.LENGTH_SHORT).show();
+
+        rvList.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvList.setLayoutManager(linearLayoutManager);
 
@@ -49,13 +54,13 @@ public class NguoiDungActivity extends BaseActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
-        fab = findViewById(R.id.fabnguoiDung);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                openActivity(Add_NameActivity.class);
             }
         });
+
 
 
     }

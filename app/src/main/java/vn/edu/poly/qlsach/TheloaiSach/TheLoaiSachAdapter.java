@@ -3,6 +3,7 @@ package vn.edu.poly.qlsach.TheloaiSach;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +62,13 @@ public class TheLoaiSachAdapter extends RecyclerView.Adapter<TheLoaiSachAdapter.
                 alertDialog.show();
             }
         });
+        holder.imgEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,ThongTinTheLoaiActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -75,8 +83,8 @@ public class TheLoaiSachAdapter extends RecyclerView.Adapter<TheLoaiSachAdapter.
             super(itemView);
             tvMaTL = itemView.findViewById(R.id.tvMaTL);
             tvTenTL = itemView.findViewById(R.id.tvTenTL);
-            imgDelete=itemView.findViewById(R.id.imgDelete);
-            imgEdit=itemView.findViewById(R.id.imgEdit);
+            imgDelete=itemView.findViewById(R.id.imgDeleteTL);
+            imgEdit=itemView.findViewById(R.id.imgEditTL);
         }
     }
 }

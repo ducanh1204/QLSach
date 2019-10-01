@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import vn.edu.poly.qlsach.Login.LoginActivity;
 import vn.edu.poly.qlsach.NguoiDung.NguoiDungActivity;
 import vn.edu.poly.qlsach.R;
-import vn.edu.poly.qlsach.TheloaiSach.TheLoaiSach;
+import vn.edu.poly.qlsach.Sach.SachActivity;
 import vn.edu.poly.qlsach.TheloaiSach.TheLoaiSashActivity;
 
 public class HomeActivity extends BaseActivity {
@@ -18,6 +18,7 @@ public class HomeActivity extends BaseActivity {
     public int setLayout() {
         return R.layout.activity_home;
     }
+
 
     @Override
     public void initView() {
@@ -38,7 +39,10 @@ public class HomeActivity extends BaseActivity {
             openActivity(NguoiDungActivity.class);
         } else if (id == R.id.menu_ql_theloai) {
             openActivity(TheLoaiSashActivity.class);
-        } else if (id == R.id.menu_dangxuat) {
+        } else  if(id==R.id.menu_ql_sach){
+            openActivity(SachActivity.class);
+        }
+        else if (id == R.id.menu_dangxuat) {
             openActivity(LoginActivity.class);
         }
         return super.onOptionsItemSelected(item);

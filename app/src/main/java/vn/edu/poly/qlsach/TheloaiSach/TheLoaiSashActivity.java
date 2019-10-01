@@ -3,9 +3,12 @@ package vn.edu.poly.qlsach.TheloaiSach;
 
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +21,7 @@ public class TheLoaiSashActivity extends BaseActivity {
     RecyclerView rvList;
     TheLoaiSachAdapter theLoaiSachAdapter;
     List<TheLoaiSach> theLoaiSachList;
+    FloatingActionButton fab;
     @Override
     public int setLayout() {
         return R.layout.activity_the_loai_sash;
@@ -41,6 +45,17 @@ public class TheLoaiSashActivity extends BaseActivity {
         setTitle("Quản lý thể loại Sách");
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
+        fab = findViewById(R.id.fabTheLoaiSach);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(Add_MaTLActivity.class);
+            }
+        });
+
+
     }
 
     @Override

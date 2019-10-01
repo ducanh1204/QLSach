@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:layout_marginLeft="48dp"
+    android:layout_marginTop="32dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgbiaSach"
+            android:layout_width="141dp"
+            android:layout_height="222dp"
+            android:src="@drawable/img_sach" />
+
+        <TextView
+            android:id="@+id/tvTitle_book"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgbiaSach"
+            android:text="Android nâng cao"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_price_book"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTitle_book"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/textblack" />
+
+        <TextView
+            android:id="@+id/tv_VND"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTitle_book"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/tv_price_book"
+            android:text="@string/VND"
+            android:textColor="@color/textblack" />
+
+        <TextView
+            android:id="@+id/tvbook_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_price_book"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/textblack" />
+
+        <TextView
+            android:id="@+id/tvquyen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_price_book"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/tvbook_count"
+            android:text="@string/quyen"
+            android:textColor="@color/textblack" />
+
+        <ImageView
+            android:id="@+id/imgDelete_Book"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/imgbiaSach"
+            android:layout_alignBottom="@+id/tvquyen"
+            android:src="@drawable/delete_icon" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

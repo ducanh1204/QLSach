@@ -2,10 +2,10 @@ package vn.edu.poly.qlsach.TheloaiSach;
 
 public class TheLoaiSach {
 
-    String maTheLoai;
-    String tenTheLoai;
-    String moTa;
-    int vitri;
+    public String maTheLoai;
+    public String tenTheLoai;
+    public String moTa;
+    public int vitri;
 
     public TheLoaiSach(String maTheLoai, String tenTheLoai, String moTa, int vitri) {
         this.maTheLoai = maTheLoai;
