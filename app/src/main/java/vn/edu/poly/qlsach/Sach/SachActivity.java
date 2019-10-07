@@ -37,7 +37,7 @@ public class SachActivity extends BaseActivity {
 
         sachList = new ArrayList<>();
         for(int i=0;i<10;i++){
-            sachList.add(new Sach("Người nam châm","s006","Android cơ bản","ducanh","ducanh","200","100"));
+            sachList.add(new Sach("Người nam châm","s006","Android cơ bản","ducanh","ducanh","200","100000"));
         }
         sachAdapter = new SachAdapter(this,sachList);
 

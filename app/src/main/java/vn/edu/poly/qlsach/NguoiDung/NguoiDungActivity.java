@@ -35,7 +35,7 @@ public class NguoiDungActivity extends BaseActivity {
 
         nguoidungList = new ArrayList<>();
         for(int i=0;i<10;i++){
-            nguoidungList.add(new Nguoidung("ducanh","ducanh","Ducanh1204","0355740828","HD"));
+            nguoidungList.add(new Nguoidung("Đức Anh","ducanh","Ducanh1204","0355740828","HD"));
         }
 
 
