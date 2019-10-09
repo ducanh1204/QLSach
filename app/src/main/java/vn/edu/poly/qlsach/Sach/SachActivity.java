@@ -18,10 +18,12 @@ import vn.edu.poly.qlsach.R;
 
 public class SachActivity extends BaseActivity {
 
-    RecyclerView rvList;
-    SachAdapter sachAdapter;
-    List<Sach> sachList;
-    FloatingActionButton fab;
+    private RecyclerView rvList;
+    private SachAdapter sachAdapter;
+    private List<Sach> sachList;
+    private FloatingActionButton fab;
+    private SachDAO sachDAO;
+
     @Override
     public int setLayout() {
         return R.layout.activity_sach;
@@ -29,19 +31,17 @@ public class SachActivity extends BaseActivity {
 
     @Override
     public void initView() {
-
         setTitle("Quản lý Sách");
         rvList = findViewById(R.id.rvListSach);
         fab = findViewById(R.id.fabSach);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        sachList = new ArrayList<>();
-        for(int i=0;i<10;i++){
-            sachList.add(new Sach("Người nam châm","s006","Android cơ bản","ducanh","ducanh","200","100000"));
-        }
-        sachAdapter = new SachAdapter(this,sachList);
+        sachDAO = new SachDAO(this);
+        sachList = sachDAO.getAll();
 
-        StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        sachAdapter = new SachAdapter(this, sachList);
+
+        StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         rvList.setLayoutManager(gridLayoutManager);
         rvList.setAdapter(sachAdapter);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -51,13 +51,12 @@ public class SachActivity extends BaseActivity {
             }
         });
 
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.search_view,menu);
+        inflater.inflate(R.menu.search_view, menu);
         return super.onCreateOptionsMenu(menu);
     }
 }

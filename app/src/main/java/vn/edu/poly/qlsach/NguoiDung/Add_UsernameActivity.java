@@ -34,7 +34,7 @@ public class Add_UsernameActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        openActivity(Add_PasswordActivity.class);
+        openActivity(Add_NameActivity.class);
         return super.onOptionsItemSelected(item);
     }
 }

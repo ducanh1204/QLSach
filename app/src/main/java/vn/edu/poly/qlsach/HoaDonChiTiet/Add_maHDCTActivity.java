@@ -1,16 +1,13 @@
 package vn.edu.poly.qlsach.HoaDonChiTiet;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+
 import vn.edu.poly.qlsach.Home.BaseActivity;
-import vn.edu.poly.qlsach.NguoiDung.Add_UsernameActivity;
 import vn.edu.poly.qlsach.R;
 
 public class Add_maHDCTActivity extends BaseActivity {
@@ -38,7 +35,7 @@ public class Add_maHDCTActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        openActivity(Add_maHD_HDCTActivity.class);
+        openActivity(Add_maSach_HDCTActivity.class);
         return super.onOptionsItemSelected(item);
     }
 }

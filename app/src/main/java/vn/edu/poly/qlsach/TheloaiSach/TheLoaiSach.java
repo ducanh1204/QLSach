@@ -1,17 +1,20 @@
 package vn.edu.poly.qlsach.TheloaiSach;
 
 public class TheLoaiSach {
+    public TheLoaiSach(){
+
+    }
 
     public String maTheLoai;
     public String tenTheLoai;
-    public String moTa;
     public int vitri;
+    public String moTa;
 
-    public TheLoaiSach(String maTheLoai, String tenTheLoai, String moTa, int vitri) {
+    public TheLoaiSach(String maTheLoai, String tenTheLoai, int vitri, String moTa) {
         this.maTheLoai = maTheLoai;
         this.tenTheLoai = tenTheLoai;
-        this.moTa = moTa;
         this.vitri = vitri;
+        this.moTa = moTa;
     }
 
     public String getMaTheLoai() {
@@ -30,19 +33,19 @@ public class TheLoaiSach {
         this.tenTheLoai = tenTheLoai;
     }
 
-    public String getMoTa() {
-        return moTa;
-    }
-
-    public void setMoTa(String moTa) {
-        this.moTa = moTa;
-    }
-
     public int getVitri() {
         return vitri;
     }
 
     public void setVitri(int vitri) {
         this.vitri = vitri;
+    }
+
+    public String getMoTa() {
+        return moTa;
+    }
+
+    public void setMoTa(String moTa) {
+        this.moTa = moTa;
     }
 }

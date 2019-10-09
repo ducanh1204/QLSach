@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import vn.edu.poly.qlsach.HoaDonChiTiet.ThongTinHDCTActivity;
+import vn.edu.poly.qlsach.HoaDonChiTiet.HDCTActivity;
 import vn.edu.poly.qlsach.R;
 
 public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHolder> {
@@ -68,6 +68,13 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHold
                 alertDialog.show();
             }
         });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, HDCTActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -84,13 +91,6 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHold
             tvngayMua=itemView.findViewById(R.id.tvNgayMua);
             imgDelete=itemView.findViewById(R.id.imgDeleteHD);
             imgEdit=itemView.findViewById(R.id.imgEditHD);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, ThongTinHDCTActivity.class);
-                    context.startActivity(intent);
-                }
-            });
 
         }
     }

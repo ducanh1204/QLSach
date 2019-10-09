@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,19 +38,22 @@ public class NguoiDungAdapter extends RecyclerView.Adapter<NguoiDungAdapter.Nguo
         return new NguoiDungHolder(view);
     }
 
+    private NguoiDungDAO nguoiDungDAO;
     @Override
     public void onBindViewHolder(@NonNull NguoiDungHolder holder, final int position) {
 
-        holder.tvuserName.setText(nguoidungList.get(position).getName());
+        nguoiDungDAO = new NguoiDungDAO(context);
+        holder.tvuserName.setText(nguoidungList.get(position).getId());
         holder.tvohoneNumber.setText(nguoidungList.get(position).getPhoneNumber());
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setMessage("Bạn có chắc chắn muốn xóa người dùng này?");
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        nguoiDungDAO.deleteUser(nguoidungList.get(position).getId());
                         nguoidungList.remove(position);
                         notifyDataSetChanged();
                     }
@@ -57,17 +61,23 @@ public class NguoiDungAdapter extends RecyclerView.Adapter<NguoiDungAdapter.Nguo
                 builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                     }
                 });
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
             }
         });
-        holder.imgEdit.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ThongTinNguoiDungActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("id",nguoidungList.get(position).getId());
+                bundle.putString("name",nguoidungList.get(position).getName());
+                bundle.putString("phone",nguoidungList.get(position).getPhoneNumber());
+                bundle.putString("address",nguoidungList.get(position).getAddress());
+                bundle.putString("pass",nguoidungList.get(position).getPassword());
+                intent.putExtra("User",bundle);
                 context.startActivity(intent);
             }
         });
@@ -81,14 +91,12 @@ public class NguoiDungAdapter extends RecyclerView.Adapter<NguoiDungAdapter.Nguo
 
     public class NguoiDungHolder extends RecyclerView.ViewHolder {
         TextView tvuserName, tvohoneNumber;
-        ImageView imgEdit, imgDelete;
-        CardView cardView;
+        ImageView imgDelete;
 
         public NguoiDungHolder(@NonNull View itemView) {
             super(itemView);
             tvohoneNumber = itemView.findViewById(R.id.tvphoneNumber);
             tvuserName = itemView.findViewById(R.id.tvuserName);
-            imgEdit = itemView.findViewById(R.id.imgEditUser);
             imgDelete = itemView.findViewById(R.id.imgDeleteUser);
 
         }

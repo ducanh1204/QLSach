@@ -9,26 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ThongKe.ThongKeActivity"
-            android:parentActivityName=".Home.HomeActivity"></activity>
+        <activity android:name=".HoaDonChiTiet.Add_Soluong_HDCTActivity"
+            android:parentActivityName=".HoaDonChiTiet.HDCTActivity"></activity>
+        <activity android:name=".HoaDonChiTiet.Add_maSach_HDCTActivity"
+            android:parentActivityName=".HoaDonChiTiet.HDCTActivity"/>
+        <activity android:name=".HoaDonChiTiet.Add_maHDCTActivity"
+            android:parentActivityName=".HoaDonChiTiet.HDCTActivity"/>
+        <activity android:name=".HoaDonChiTiet.ThongtinHDCTActivity"
+            android:parentActivityName=".HoaDonChiTiet.HDCTActivity"/>
+        <activity
+            android:name=".HoaDonChiTiet.HDCTActivity"
+            android:parentActivityName=".HoaDon.HoaDonActivity" />
+        <activity
+            android:name=".ThongKe.ThongKeActivity"
+            android:parentActivityName=".Home.HomeActivity" />
         <activity
             android:name=".SachBanChay.SachBanChayActivity"
             android:parentActivityName=".Home.HomeActivity" />
-        <activity
-            android:name=".HoaDonChiTiet.ThongTinHDCTActivity"
-            android:parentActivityName=".HoaDon.HoaDonActivity" />
-        <activity
-            android:name=".HoaDonChiTiet.Add_Soluong_HDCTActivity"
-            android:parentActivityName=".HoaDon.HoaDonActivity" />
-        <activity
-            android:name=".HoaDonChiTiet.Add_maSach_HDCTActivity"
-            android:parentActivityName=".HoaDon.HoaDonActivity" />
-        <activity
-            android:name=".HoaDonChiTiet.Add_maHD_HDCTActivity"
-            android:parentActivityName=".HoaDon.HoaDonActivity" />
-        <activity
-            android:name=".HoaDonChiTiet.Add_maHDCTActivity"
-            android:parentActivityName=".HoaDon.HoaDonActivity" />
         <activity
             android:name=".HoaDon.Add_dateHDActivity"
             android:parentActivityName=".HoaDon.HoaDonActivity" />

@@ -23,6 +23,7 @@ public class Add_dateHDActivity extends BaseActivity {
 
 
     TextInputEditText editText;
+
     @Override
     public int setLayout() {
         return R.layout.activity_add_date_hd;
@@ -31,15 +32,16 @@ public class Add_dateHDActivity extends BaseActivity {
     @Override
     public void initView() {
         setTitle("Ngày mua");
-        Drawable drawable= getResources().getDrawable(R.drawable.close_icon);
+        Drawable drawable = getResources().getDrawable(R.drawable.close_icon);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
-        editText =findViewById(R.id.edt_ngayMua);
+        editText = findViewById(R.id.edt_ngayMua);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.check_menu,menu);
+        inflater.inflate(R.menu.check_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -57,10 +59,9 @@ public class Add_dateHDActivity extends BaseActivity {
         DatePickerDialog dialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                editText.setText(view.getYear() + "/" + view.getMonth() + "/" + view.getDayOfMonth());
+                editText.setText(view.getDayOfMonth() + "/" + (view.getMonth() + 1) + "/" + view.getYear());
             }
         }, nam, thang, ngay);
         dialog.show();
-
     }
 }

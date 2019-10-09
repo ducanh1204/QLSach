@@ -18,10 +18,12 @@ import vn.edu.poly.qlsach.R;
 
 public class TheLoaiSashActivity extends BaseActivity {
 
-    RecyclerView rvList;
-    TheLoaiSachAdapter theLoaiSachAdapter;
-    List<TheLoaiSach> theLoaiSachList;
-    FloatingActionButton fab;
+    private RecyclerView rvList;
+    private TheLoaiSachAdapter theLoaiSachAdapter;
+    private List<TheLoaiSach> theLoaiSachList;
+    private FloatingActionButton fab;
+
+    private TheLoaiDAO theLoaiDAO;
     @Override
     public int setLayout() {
         return R.layout.activity_the_loai_sash;
@@ -30,12 +32,10 @@ public class TheLoaiSashActivity extends BaseActivity {
     @Override
     public void initView() {
         rvList = findViewById(R.id.rvListTheLoaiSach);
-        theLoaiSachList = new ArrayList<>();
-        theLoaiSachAdapter = new TheLoaiSachAdapter(this,theLoaiSachList);
+        theLoaiDAO = new TheLoaiDAO(this);
+        theLoaiSachList = theLoaiDAO.getAll();
 
-        for (int i=0;i<11;i++){
-            theLoaiSachList.add(new TheLoaiSach("TL012","Tin học","hay",12));
-        }
+        theLoaiSachAdapter = new TheLoaiSachAdapter(this, theLoaiSachList);
 
         rvList.hasFixedSize();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -45,7 +45,6 @@ public class TheLoaiSashActivity extends BaseActivity {
         setTitle("Quản lý thể loại Sách");
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
 
         fab = findViewById(R.id.fabTheLoaiSach);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -62,10 +61,9 @@ public class TheLoaiSashActivity extends BaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.search_view,menu);
+        inflater.inflate(R.menu.search_view, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
 
 
 }

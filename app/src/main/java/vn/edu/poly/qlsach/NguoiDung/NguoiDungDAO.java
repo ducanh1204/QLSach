@@ -1,5 +1,6 @@
 package vn.edu.poly.qlsach.NguoiDung;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,12 +18,12 @@ public class NguoiDungDAO {
         this.mySqliteOpenHelper = new MySqliteOpenHelper(context);
     }
 
-    private String USER_TABLE = "nguoiDung";
+    private String USER_TABLE = "Nguoidung";
 
     public String ID = "id";
     public String NAME = "name";
     public String PASSWORD = "password";
-    public String PHONE_NUMBER = "phone";
+    public String PHONE_NUMBER = "phoneNumber";
     public String ADDRESS = "address";
 
 
@@ -60,5 +61,40 @@ public class NguoiDungDAO {
         return nguoidungList;
     }
 
+    public long insertUser(Nguoidung nguoidung) {
+        SQLiteDatabase sqLiteDatabase = mySqliteOpenHelper.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(ID, nguoidung.getId());
+        contentValues.put(NAME, nguoidung.getName());
+        contentValues.put(PASSWORD, nguoidung.getPassword());
+        contentValues.put(PHONE_NUMBER,nguoidung.getPhoneNumber());
+        contentValues.put(ADDRESS,nguoidung.getAddress());
+
+        long result = sqLiteDatabase.insert(USER_TABLE, null, contentValues);
+        sqLiteDatabase.close();
+        return result;
+    }
+
+    public long updateUser(Nguoidung nguoidung) {
+        SQLiteDatabase sqLiteDatabase = mySqliteOpenHelper.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(ID, nguoidung.getId());
+        contentValues.put(NAME, nguoidung.getName());
+        contentValues.put(PASSWORD, nguoidung.getPassword());
+        contentValues.put(PHONE_NUMBER,nguoidung.getPhoneNumber());
+        contentValues.put(ADDRESS,nguoidung.getAddress());
+
+        long result = sqLiteDatabase.update(USER_TABLE,contentValues, ID + "=?", new String[]{nguoidung.getId()});
+        sqLiteDatabase.close();
+        return result;
+    }
+    public void deleteUser(String id) {
+        SQLiteDatabase sqLiteDatabase = mySqliteOpenHelper.getWritableDatabase();
+
+        sqLiteDatabase.delete(USER_TABLE, ID + "=?", new String[]{id});
+
+    }
 
 }

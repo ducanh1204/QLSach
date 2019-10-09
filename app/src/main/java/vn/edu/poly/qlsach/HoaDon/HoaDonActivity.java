@@ -1,25 +1,19 @@
 package vn.edu.poly.qlsach.HoaDon;
 
-import android.app.DatePickerDialog;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.DatePicker;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
-import vn.edu.poly.qlsach.HoaDonChiTiet.Add_maHDCTActivity;
 import vn.edu.poly.qlsach.Home.BaseActivity;
 import vn.edu.poly.qlsach.R;
 
@@ -69,16 +63,13 @@ public class HoaDonActivity extends BaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.option_menu_hoadon, menu);
+        inflater.inflate(R.menu.search_view, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if(id==R.id.addHDCT){
-            openActivity(Add_maHDCTActivity.class);
-        }
+
         return super.onOptionsItemSelected(item);
     }
 }

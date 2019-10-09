@@ -52,7 +52,7 @@ public class ThongTinHDActivityActivity extends BaseActivity {
         DatePickerDialog dialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                editText.setText(view.getYear() + "/" + view.getMonth() + "/" + view.getDayOfMonth());
+                editText.setText(view.getDayOfMonth() + "/" + (view.getMonth()+1) + "/" + view.getYear());
             }
         }, nam, thang, ngay);
         dialog.show();

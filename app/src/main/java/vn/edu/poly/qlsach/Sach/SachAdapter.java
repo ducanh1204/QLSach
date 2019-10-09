@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,11 +35,13 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
         View view = LayoutInflater.from(context).inflate(R.layout.row_sach, parent, false);
         return new SachHolder(view);
     }
+    private SachDAO sachDAO;
 
     @Override
     public void onBindViewHolder(@NonNull SachHolder holder, final int position) {
+        sachDAO = new SachDAO(context);
         holder.tvtenSach.setText(sachList.get(position).getTenSach());
-        holder.tvsoluong.setText(sachList.get(position).getSoLuong());
+        holder.tvsoluong.setText(sachList.get(position).getSoLuong()+"");
         holder.tvgia.setText(sachList.get(position).getGiaBia());
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +51,7 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        sachDAO.deleteBook(sachList.get(position).getMaSach());
                         sachList.remove(position);
                         notifyDataSetChanged();
                     }
@@ -59,6 +63,22 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
                 });
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
+            }
+        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,ThongTinSachActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("ma",sachList.get(position).getMaSach());
+                bundle.putString("maTL",sachList.get(position).getMaTLSach());
+                bundle.putString("ten",sachList.get(position).getTenSach());
+                bundle.putString("tacgia",sachList.get(position).getTacGia());
+                bundle.putString("nxb",sachList.get(position).getNxb());
+                bundle.putString("soluong",sachList.get(position).getSoLuong()+"");
+                bundle.putString("gia",sachList.get(position).getGiaBia());
+                intent.putExtra("Sach",bundle);
+                context.startActivity(intent);
             }
         });
 
@@ -79,13 +99,7 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
             tvgia = itemView.findViewById(R.id.tv_price_book);
             tvsoluong = itemView.findViewById(R.id.tvbook_count);
             imgDelete = itemView.findViewById(R.id.imgDelete_Book);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context,ThongTinSachActivity.class);
-                    context.startActivity(intent);
-                }
-            });
+
         }
     }
 }

@@ -19,10 +19,12 @@ import vn.edu.poly.qlsach.R;
 public class NguoiDungActivity extends BaseActivity {
 
 
-    RecyclerView rvList;
-    NguoiDungAdapter nguoiDungAdapter;
-    List<Nguoidung> nguoidungList;
-    FloatingActionButton fab;
+   private RecyclerView rvList;
+   private NguoiDungAdapter nguoiDungAdapter;
+   private List<Nguoidung> nguoidungList;
+   private FloatingActionButton fab;
+
+   private NguoiDungDAO nguoiDungDAO;
     @Override
     public int setLayout() {
         return R.layout.activity_nguoi_dung;
@@ -32,12 +34,8 @@ public class NguoiDungActivity extends BaseActivity {
     public void initView() {
         rvList=findViewById(R.id.rvListNguoidung);
         fab = findViewById(R.id.fabnguoiDung);
-
-        nguoidungList = new ArrayList<>();
-        for(int i=0;i<10;i++){
-            nguoidungList.add(new Nguoidung("Đức Anh","ducanh","Ducanh1204","0355740828","HD"));
-        }
-
+        nguoiDungDAO = new NguoiDungDAO(this);
+        nguoidungList = nguoiDungDAO.getAll();
 
         nguoiDungAdapter = new NguoiDungAdapter(this,nguoidungList);
 
@@ -57,7 +55,7 @@ public class NguoiDungActivity extends BaseActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity(Add_NameActivity.class);
+                openActivity(Add_UsernameActivity.class);
             }
         });
 

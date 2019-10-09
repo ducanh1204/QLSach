@@ -14,118 +14,64 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_maTL"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="100">
 
-            <ImageView
-                android:id="@+id/imgEdit_maTL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/edit_icon" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_maTL"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_maTL"
+                android:enabled="false"
+                android:textColor="@color/colorPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/imgEdit_maTL"
-                app:counterEnabled="true"
-                app:counterMaxLength="100">
+                android:hint="@string/inforTL_hint_enter_maTL" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_maTL"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/inforTL_hint_enter_maTL" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </RelativeLayout>
-        <RelativeLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_tenTL"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="100">
 
-            <ImageView
-                android:id="@+id/imgEdit_tenTL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/edit_icon" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_tenTL"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_tenTL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/imgEdit_tenTL"
-                app:counterEnabled="true"
-                app:counterMaxLength="100">
+                android:hint="@string/inforTL_hint_enter_tenTL" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_tenTL"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/inforTL_hint_enter_tenTL" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </RelativeLayout>
-        <RelativeLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_vitriTL"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="100">
 
-            <ImageView
-                android:id="@+id/imgEdit_vitriTL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/edit_icon" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_vitriTL"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_vitriTL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/imgEdit_vitriTL"
-                app:counterEnabled="true"
-                app:counterMaxLength="100">
+                android:hint="@string/inforTL_hint_enter_vitriTL"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_vitriTL"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/inforTL_hint_enter_vitriTL"
-                    android:inputType="number"/>
-            </com.google.android.material.textfield.TextInputLayout>
-        </RelativeLayout>
-        <RelativeLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_motaTL"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="100">
 
-            <ImageView
-                android:id="@+id/imgEdit_motaTL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/edit_icon" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_motaTL"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_motaTL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/imgEdit_motaTL"
-                app:counterEnabled="true"
-                app:counterMaxLength="100">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_motaTL"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/inforTL_hint_enter_motaTL" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </RelativeLayout>
+                android:hint="@string/inforTL_hint_enter_motaTL" />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 </ScrollView>

@@ -9,10 +9,10 @@ public class Sach {
     public String tenSach;
     public String tacGia;
     public String nxb;
-    public String soLuong;
+    public int soLuong;
     public String giaBia;
 
-    public Sach(String maSach, String maTLSach, String tenSach, String tacGia, String nxb, String soLuong, String giaBia) {
+    public Sach(String maSach, String maTLSach, String tenSach, String tacGia, String nxb, int soLuong, String giaBia) {
         this.maSach = maSach;
         this.maTLSach = maTLSach;
         this.tenSach = tenSach;
@@ -62,11 +62,11 @@ public class Sach {
         this.nxb = nxb;
     }
 
-    public String getSoLuong() {
+    public int getSoLuong() {
         return soLuong;
     }
 
-    public void setSoLuong(String soLuong) {
+    public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
     }
 

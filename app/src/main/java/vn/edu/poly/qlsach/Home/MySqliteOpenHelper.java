@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 public class MySqliteOpenHelper extends SQLiteOpenHelper {
-    private static String DB_NAME = "demosqlite.db";
+    private static String DB_NAME = "qlisach.db";
 
 
     private static String TAG = "DataBaseHelper"; // Tag just for the LogCat window
