@@ -32,7 +32,7 @@ public class ThongTinSachActivity extends BaseActivity {
     private SachDAO sachDAO;
     private TextInputEditText edtMa, edtTen, edtTacgia, edtNXB, edtSoluong, edtGia;
     private Spinner spnMaTL;
-    String maSach, maTL, ten, tacgia, nxb, soluong, gia;
+  private   String maSach, maTL, ten, tacgia, nxb, soluong, gia;
     private MaTL_SpinnerAdapter maTL_spinnerAdapter;
     private TheLoaiDAO theLoaiDAO;
     private List<TheLoaiSach> theLoaiSachList;
