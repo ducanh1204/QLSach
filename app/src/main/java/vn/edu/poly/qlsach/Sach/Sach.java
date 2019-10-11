@@ -3,6 +3,7 @@ package vn.edu.poly.qlsach.Sach;
 public class Sach {
     public Sach() {
     }
+    public static String [] Sach = new String[7];
 
     public String maSach;
     public String maTLSach;

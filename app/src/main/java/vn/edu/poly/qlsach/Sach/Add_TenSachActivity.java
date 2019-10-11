@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 import vn.edu.poly.qlsach.Home.BaseActivity;
 import vn.edu.poly.qlsach.R;
@@ -21,12 +24,16 @@ public class Add_TenSachActivity extends BaseActivity {
         return R.layout.activity_add__ten_sach;
     }
 
+    private String tenSach;
+    private TextInputEditText edt_addTenSach;
     @Override
     public void initView() {
         setTitle("Tên Sách");
         Drawable drawable= getResources().getDrawable(R.drawable.close_icon);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
+        findViewById(R.id.edt_addTenSach);
+        edt_addTenSach=findViewById(R.id.edt_addTenSach);
 
     }
 
@@ -39,7 +46,17 @@ public class Add_TenSachActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        openActivity(Add_TacGiaActivity.class);
+        switch (item.getItemId()) {
+            case R.id.next_menu:
+                tenSach = edt_addTenSach.getText().toString().trim();
+                if (tenSach.equals("")){
+                    Toast.makeText(this,"Không để trống dữ liệu",Toast.LENGTH_SHORT).show();
+                } else {
+                    Sach.Sach[2]=tenSach;
+                    openActivity(Add_TacGiaActivity.class);
+                }
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 }

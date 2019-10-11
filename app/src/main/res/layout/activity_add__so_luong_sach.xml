@@ -11,10 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:counterEnabled="true"
-        app:counterMaxLength="100">
+        app:counterMaxLength="12">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:inputType="number"
+            android:id="@+id/edt_addSoluong"
             android:layout_height="wrap_content"
             android:hint="@string/add_Sach_hint_enter_soluongSach"/>
     </com.google.android.material.textfield.TextInputLayout>

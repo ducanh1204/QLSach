@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:counterEnabled="true"
-            app:counterMaxLength="100">
+            app:counterMaxLength="12">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_maSach"
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:counterEnabled="true"
-            app:counterMaxLength="100">
+            app:counterMaxLength="12">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_tenSach"
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:counterEnabled="true"
-            app:counterMaxLength="100">
+            app:counterMaxLength="50">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_tacGia"
@@ -84,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:counterEnabled="true"
-            app:counterMaxLength="100">
+            app:counterMaxLength="50">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_nxb"
@@ -100,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:counterEnabled="true"
-            app:counterMaxLength="100">
+            app:counterMaxLength="12">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_soLuongSach"
@@ -117,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:counterEnabled="true"
-            app:counterMaxLength="100">
+            app:counterMaxLength="12">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_gia"

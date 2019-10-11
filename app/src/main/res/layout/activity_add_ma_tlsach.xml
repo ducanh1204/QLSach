@@ -14,6 +14,7 @@
         android:hint="@string/add_Sach_hint_maTLSach" />
 
     <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spn_maTL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

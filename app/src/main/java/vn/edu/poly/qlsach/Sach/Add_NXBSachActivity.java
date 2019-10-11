@@ -6,6 +6,9 @@ import android.graphics.drawable.Drawable;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 import vn.edu.poly.qlsach.Home.BaseActivity;
 import vn.edu.poly.qlsach.R;
@@ -17,12 +20,15 @@ public class Add_NXBSachActivity extends BaseActivity {
         return R.layout.activity_add__nxbsach;
     }
 
+    private String NXB;
+    private TextInputEditText edt_addNXB;
     @Override
     public void initView() {
         setTitle("NXB Sách");
         Drawable drawable= getResources().getDrawable(R.drawable.close_icon);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
+        edt_addNXB=findViewById(R.id.edt_addNXB);
 
     }
 
@@ -35,7 +41,17 @@ public class Add_NXBSachActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        openActivity(Add_SoLuongSachActivity.class);
+        switch (item.getItemId()) {
+            case R.id.next_menu:
+                NXB = edt_addNXB.getText().toString().trim();
+                if (NXB.equals("")) {
+                    Toast.makeText(this, "Không để trống dữ liệu", Toast.LENGTH_SHORT).show();
+                } else {
+                    Sach.Sach[4] = NXB;
+                    openActivity(Add_SoLuongSachActivity.class);
+                }
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 }
