@@ -19,10 +19,11 @@ import vn.edu.poly.qlsach.R;
 
 public class HoaDonActivity extends BaseActivity {
 
-    RecyclerView rvList;
-    FloatingActionButton fab;
-    HoaDonAdapter hoaDonAdapter;
-    List<Hoadon> hoadonList;
+    private RecyclerView rvList;
+    private FloatingActionButton fab;
+    private HoaDonAdapter hoaDonAdapter;
+    private List<Hoadon> hoadonList;
+    private HoaDonDAO hoaDonDAO;
 
     @Override
     public int setLayout() {
@@ -36,11 +37,8 @@ public class HoaDonActivity extends BaseActivity {
         rvList = findViewById(R.id.rvListHoadon);
         fab = findViewById(R.id.fabhoaDon);
 
-
-        hoadonList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            hoadonList.add(new Hoadon("HD00" + (i + 1), "12-04-2019"));
-        }
+        hoaDonDAO = new HoaDonDAO(this);
+        hoadonList = hoaDonDAO.getAll();
         hoaDonAdapter = new HoaDonAdapter(this, hoadonList);
 
 

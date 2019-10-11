@@ -27,6 +27,7 @@ public class HDCTAdapter extends RecyclerView.Adapter<HDCTAdapter.HDCTHolder> {
         this.hdctList = hdctList;
     }
 
+    private HDCTDAO hdctdao;
     @NonNull
     @Override
     public HDCTHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -37,6 +38,7 @@ public class HDCTAdapter extends RecyclerView.Adapter<HDCTAdapter.HDCTHolder> {
     @Override
     public void onBindViewHolder(@NonNull HDCTHolder holder, final int position) {
 
+        hdctdao = new HDCTDAO(context);
         holder.tvmaHDCT.setText(hdctList.get(position).getMaHDCT());
         holder.tvSoluong.setText(hdctList.get(position).getSoLuong() + "");
         holder.imgDeleteHDCT.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +49,7 @@ public class HDCTAdapter extends RecyclerView.Adapter<HDCTAdapter.HDCTHolder> {
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        hdctdao.deleteHDCT(hdctList.get(position).getMaHDCT());
                         hdctList.remove(position);
                         notifyDataSetChanged();
                     }

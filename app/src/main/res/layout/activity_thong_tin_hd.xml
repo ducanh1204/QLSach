@@ -23,7 +23,7 @@
             app:counterMaxLength="100">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_name"
+                android:id="@+id/edt_maHD"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:enabled="false"

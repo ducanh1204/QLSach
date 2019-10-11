@@ -1,6 +1,8 @@
 package vn.edu.poly.qlsach.HoaDonChiTiet;
 
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -30,18 +32,24 @@ public class HDCTActivity extends BaseActivity {
 
     private HDCTAdapter hdctAdapter;
 
+    private HDCTDAO hdctdao;
+
+    private String maHD;
+
     @Override
     public void initView() {
         rvListHDCT = findViewById(R.id.rvListHDCT);
         fabHDCT = findViewById(R.id.fabHDCT);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         setTitle("Danh sách hóa đơn chi tiết");
-        hdctList = new ArrayList<>();
-        for (int i=0;i<10;i++){
-            hdctList.add(new HDCT("HDCT" + (i+1),"maHD","maSach",20));
-        }
+        Intent intent = getIntent();
+        Bundle bundle = intent.getBundleExtra("MAHD");
+        maHD = bundle.getString("maHD");
+        hdctdao = new HDCTDAO(this);
 
-        hdctAdapter = new HDCTAdapter(this,hdctList);
+        hdctList = hdctdao.show_HDCT(maHD);
+
+        hdctAdapter = new HDCTAdapter(this, hdctList);
         rvListHDCT.hasFixedSize();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvListHDCT.setLayoutManager(linearLayoutManager);
@@ -59,7 +67,7 @@ public class HDCTActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.search_view,menu);
+        menuInflater.inflate(R.menu.search_view, menu);
         return super.onCreateOptionsMenu(menu);
     }
 }

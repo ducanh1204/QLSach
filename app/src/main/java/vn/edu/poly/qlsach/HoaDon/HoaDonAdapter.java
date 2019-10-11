@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,14 +36,20 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHold
         return new HoaDonHolder(view);
     }
 
+    private HoaDonDAO hoaDonDAO;
     @Override
     public void onBindViewHolder(@NonNull HoaDonHolder holder,final int position) {
+        hoaDonDAO = new HoaDonDAO(context);
         holder.tvmaHD.setText(hoadonList.get(position).getMaHoaDon());
         holder.tvngayMua.setText(hoadonList.get(position).getNgayMua());
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,ThongTinHDActivityActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("maHD",hoadonList.get(position).getMaHoaDon());
+                bundle.putString("ngayMua",hoadonList.get(position).getNgayMua());
+                intent.putExtra("HD",bundle);
                 context.startActivity(intent);
             }
         });
@@ -54,6 +61,7 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHold
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        hoaDonDAO.deleteHD(hoadonList.get(position).getMaHoaDon());
                         hoadonList.remove(position);
                         notifyDataSetChanged();
                     }
@@ -72,6 +80,9 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHold
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, HDCTActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("maHD",hoadonList.get(position).getMaHoaDon());
+                intent.putExtra("MAHD",bundle);
                 context.startActivity(intent);
             }
         });
