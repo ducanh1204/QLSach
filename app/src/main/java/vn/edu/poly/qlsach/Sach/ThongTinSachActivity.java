@@ -32,12 +32,10 @@ public class ThongTinSachActivity extends BaseActivity {
     private SachDAO sachDAO;
     private TextInputEditText edtMa, edtTen, edtTacgia, edtNXB, edtSoluong, edtGia;
     private Spinner spnMaTL;
-  private   String maSach, maTL, ten, tacgia, nxb, soluong, gia;
+    private String maSach, maTL, ten, tacgia, nxb, soluong, gia;
     private MaTL_SpinnerAdapter maTL_spinnerAdapter;
     private TheLoaiDAO theLoaiDAO;
     private List<TheLoaiSach> theLoaiSachList;
-
-    private SachAdapter sachAdapter;
     private List<Sach> sachList;
 
     @Override
@@ -55,7 +53,6 @@ public class ThongTinSachActivity extends BaseActivity {
 
         sachDAO = new SachDAO(this);
         sachList = sachDAO.getAll();
-        sachAdapter = new SachAdapter(this, sachList);
 
         theLoaiDAO = new TheLoaiDAO(this);
         theLoaiSachList = theLoaiDAO.getAll();
@@ -82,7 +79,7 @@ public class ThongTinSachActivity extends BaseActivity {
         spnMaTL.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-               TheLoaiSach theLoaiSach = theLoaiSachList.get(position);
+                TheLoaiSach theLoaiSach = theLoaiSachList.get(position);
                 maTL = theLoaiSach.getMaTheLoai();
             }
 
@@ -128,10 +125,7 @@ public class ThongTinSachActivity extends BaseActivity {
             } else {
                 long result = sachDAO.updateBook(sach);
                 if (result > 0) {
-                    Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
                     openActivity(SachActivity.class);
-                } else {
-                    Toast.makeText(this, "Cập nhật thất bạt", Toast.LENGTH_SHORT).show();
                 }
             }
         }

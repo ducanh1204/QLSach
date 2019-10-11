@@ -21,6 +21,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_maHDCT"
+                android:enabled="false"
+                android:textColor="@color/colorPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/inforHDCT_hint_enter_maHDCT" />
@@ -32,7 +34,7 @@
             android:layout_marginLeft="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:hint="@string/inforBook_hint_enter_maSach" />
 
         <androidx.appcompat.widget.AppCompatSpinner
@@ -50,8 +52,9 @@
             app:counterMaxLength="100">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_soLuong"
+                android:id="@+id/edt_soLuongHDCT"
                 android:layout_width="match_parent"
+                android:inputType="number"
                 android:layout_height="wrap_content"
                 android:hint="@string/inforHDCT_hint_enter_soluong" />
         </com.google.android.material.textfield.TextInputLayout>

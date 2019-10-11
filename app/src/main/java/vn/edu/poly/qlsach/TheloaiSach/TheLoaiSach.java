@@ -5,6 +5,7 @@ public class TheLoaiSach {
 
     }
 
+    public static String [] TheLoai = new String[4];
     public String maTheLoai;
     public String tenTheLoai;
     public int vitri;

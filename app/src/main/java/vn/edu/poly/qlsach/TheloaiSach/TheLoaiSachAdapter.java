@@ -69,16 +69,19 @@ public class TheLoaiSachAdapter extends RecyclerView.Adapter<TheLoaiSachAdapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,ThongTinTheLoaiActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("maTL",theLoaiSachList.get(position).getMaTheLoai());
-                bundle.putString("tenTL",theLoaiSachList.get(position).getTenTheLoai());
-                bundle.putString("vitri",theLoaiSachList.get(position).getVitri()+"");
-                bundle.putString("mota",theLoaiSachList.get(position).getMoTa());
-                intent.putExtra("TLSach",bundle);
-                context.startActivity(intent);
+                showInforTL(position);
             }
         });
+    }
+    public void showInforTL(int i){
+        Intent intent = new Intent(context,ThongTinTheLoaiActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("maTL",theLoaiSachList.get(i).getMaTheLoai());
+        bundle.putString("tenTL",theLoaiSachList.get(i).getTenTheLoai());
+        bundle.putString("vitri",theLoaiSachList.get(i).getVitri()+"");
+        bundle.putString("mota",theLoaiSachList.get(i).getMoTa());
+        intent.putExtra("TLSach",bundle);
+        context.startActivity(intent);
     }
 
     @Override

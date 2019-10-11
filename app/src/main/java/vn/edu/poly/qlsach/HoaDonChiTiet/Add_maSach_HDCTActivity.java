@@ -36,9 +36,6 @@ public class Add_maSach_HDCTActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-//                openActivity(HDCTActivity.class);
-                return true;
             case R.id.next_menu:
                 openActivity(Add_Soluong_HDCTActivity.class);
                 return true;

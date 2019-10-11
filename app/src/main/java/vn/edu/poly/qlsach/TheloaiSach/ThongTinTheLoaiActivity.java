@@ -81,11 +81,7 @@ public class ThongTinTheLoaiActivity extends BaseActivity {
             } else {
                 long result = theLoaiDAO.updateTLSach(theLoaiSach);
                 if (result > 0) {
-                    Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
                     openActivity(TheLoaiSashActivity.class);
-
-                } else {
-                    Toast.makeText(this, "Cập nhật thất bạt", Toast.LENGTH_SHORT).show();
                 }
             }
         }

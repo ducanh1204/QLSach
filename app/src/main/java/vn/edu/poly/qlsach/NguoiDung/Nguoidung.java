@@ -4,6 +4,7 @@ public class Nguoidung {
     public Nguoidung() {
     }
 
+    public static String [] Nguoidung = new String[5];
     public String id;
     public String name;
     public String password;

@@ -12,9 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:counterEnabled="true"
-        app:counterMaxLength="100">
+        app:counterMaxLength="12">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/edt_addVitri"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:hint="@string/add_vitriTLL_hint_enter_vitriTL"/>

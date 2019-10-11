@@ -14,8 +14,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:counterEnabled="true"
-        app:counterMaxLength="100">
+        app:counterMaxLength="10">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_addPhone"
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/add_Phone_hint_enter_phone"/>

@@ -81,8 +81,8 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHold
             public void onClick(View v) {
                 Intent intent = new Intent(context, HDCTActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("maHD",hoadonList.get(position).getMaHoaDon());
-                intent.putExtra("MAHD",bundle);
+                bundle.putString("HD_maHD",hoadonList.get(position).getMaHoaDon());
+                intent.putExtra("HD",bundle);
                 context.startActivity(intent);
             }
         });

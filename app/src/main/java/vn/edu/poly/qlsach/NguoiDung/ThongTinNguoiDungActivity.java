@@ -54,8 +54,6 @@ public class ThongTinNguoiDungActivity extends BaseActivity {
         edtPass.setText(bundle.getString("pass"));
         edtPhone.setText(bundle.getString("phone"));
         edtAddress.setText(bundle.getString("address"));
-
-
     }
 
     @Override
@@ -67,33 +65,36 @@ public class ThongTinNguoiDungActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.check_menu) {
+        switch (item.getItemId()) {
+            case R.id.check_menu:
+                id = edtUsername.getText().toString().trim();
+                name = edtName.getText().toString().trim();
+                pass = edtPass.getText().toString().trim();
+                phone = edtPhone.getText().toString().trim();
+                address = edtAddress.getText().toString().trim();
 
-            id = edtUsername.getText().toString().trim();
-            name = edtName.getText().toString().trim();
-            pass = edtPass.getText().toString().trim();
-            phone = edtPhone.getText().toString().trim();
-            address = edtAddress.getText().toString().trim();
+                nguoidung.setId(id);
+                nguoidung.setName(name);
+                nguoidung.setPhoneNumber(phone);
+                nguoidung.setPassword(pass);
+                nguoidung.setAddress(address);
 
-            nguoidung.setId(id);
-            nguoidung.setName(name);
-            nguoidung.setPhoneNumber(phone);
-            nguoidung.setPassword(pass);
-            nguoidung.setAddress(address);
-
-            if (id.equals("") || name.equals("") || pass.equals("") || phone.equals("") || address.equals("")) {
-                Toast.makeText(this, "Không bỏ trống dữ liệu", Toast.LENGTH_SHORT).show();
-            } else {
-                long result = nguoiDungDAO.updateUser(nguoidung);
-                if (result > 0) {
-                    Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
-                    openActivity(NguoiDungActivity.class);
+                if (id.equals("") || name.equals("") || pass.equals("") || phone.equals("") || address.equals("")) {
+                    Toast.makeText(this, "Không bỏ trống dữ liệu", Toast.LENGTH_SHORT).show();
+                } else if (id.length() < 6) {
+                    Toast.makeText(this, "Tên đăng nhập ít nhất 6 ký tự", Toast.LENGTH_SHORT).show();
+                } else if (pass.length() < 6) {
+                    Toast.makeText(this, "Mật khẩu yếu", Toast.LENGTH_SHORT).show();
+                } else if (phone.length() != 10) {
+                    Toast.makeText(this, "Số điện thoại đúng 10 số", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(this, "Cập nhật thất bạt", Toast.LENGTH_SHORT).show();
+                    long result = nguoiDungDAO.updateUser(nguoidung);
+                    if (result > 0) {
+                        openActivity(NguoiDungActivity.class);
+                    }
                 }
-            }
+                break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

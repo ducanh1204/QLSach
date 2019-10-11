@@ -13,8 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:counterEnabled="true"
-        app:counterMaxLength="100">
+        app:counterMaxLength="25">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_addName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/add_Name_hint_enter_Name"/>

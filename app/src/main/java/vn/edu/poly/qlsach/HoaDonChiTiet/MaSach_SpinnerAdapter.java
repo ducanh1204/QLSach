@@ -1,4 +1,4 @@
-package vn.edu.poly.qlsach.Sach;
+package vn.edu.poly.qlsach.HoaDonChiTiet;
 
 import android.content.Context;
 import android.database.DataSetObserver;
@@ -11,15 +11,16 @@ import android.widget.TextView;
 import java.util.List;
 
 import vn.edu.poly.qlsach.R;
-import vn.edu.poly.qlsach.TheloaiSach.TheLoaiSach;
+import vn.edu.poly.qlsach.Sach.Sach;
 
-public class MaTL_SpinnerAdapter implements SpinnerAdapter {
+public class MaSach_SpinnerAdapter implements SpinnerAdapter {
+
     private Context context;
-    private List<TheLoaiSach> theLoaiSachList;
+    private List<Sach> sachList;
 
-    public MaTL_SpinnerAdapter(Context context, List<TheLoaiSach> theLoaiSachList) {
+    public MaSach_SpinnerAdapter(Context context, List<Sach> sachList) {
         this.context = context;
-        this.theLoaiSachList = theLoaiSachList;
+        this.sachList = sachList;
     }
 
     @Override
@@ -27,7 +28,7 @@ public class MaTL_SpinnerAdapter implements SpinnerAdapter {
         convertView = LayoutInflater.from(context).inflate(R.layout.rowspinner_matl,parent,false);
 
         TextView tv_spn_maTL = convertView.findViewById(R.id.tv_spn);
-        tv_spn_maTL.setText(theLoaiSachList.get(position).getMaTheLoai());
+        tv_spn_maTL.setText(sachList.get(position).getMaSach());
 
         return convertView;
     }
@@ -37,18 +38,18 @@ public class MaTL_SpinnerAdapter implements SpinnerAdapter {
         convertView = LayoutInflater.from(context).inflate(R.layout.rowspinner_matl,parent,false);
 
         TextView tv_spn_maTL = convertView.findViewById(R.id.tv_spn);
-        tv_spn_maTL.setText(theLoaiSachList.get(position).getMaTheLoai());
+        tv_spn_maTL.setText(sachList.get(position).getMaSach());
 
         return convertView;
     }
     @Override
-    public TheLoaiSach getItem(int position) {
-        return theLoaiSachList.get(position);
+    public Sach getItem(int position) {
+        return sachList.get(position);
     }
 
     @Override
     public int getCount() {
-        return theLoaiSachList.size();
+        return sachList.size();
     }
 
     @Override

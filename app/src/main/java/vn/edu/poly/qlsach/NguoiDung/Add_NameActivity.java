@@ -5,8 +5,11 @@ import android.graphics.drawable.Drawable;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 import vn.edu.poly.qlsach.Home.BaseActivity;
 import vn.edu.poly.qlsach.R;
@@ -18,13 +21,15 @@ public class Add_NameActivity extends BaseActivity {
         return R.layout.activity_add__name;
     }
 
+    private TextInputEditText edt_addName;
+    private String name;
     @Override
     public void initView() {
         setTitle("Tên người dùng");
         Drawable drawable= getResources().getDrawable(R.drawable.close_icon);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
-
+        edt_addName=findViewById(R.id.edt_addName);
     }
 
     @Override
@@ -36,7 +41,17 @@ public class Add_NameActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        openActivity(Add_PasswordActivity.class);
+        switch (item.getItemId()) {
+            case R.id.next_menu:
+                name=edt_addName.getText().toString().trim();
+                if(name.equals("")){
+                    Toast.makeText(this,"Không để trống dữ liệu",Toast.LENGTH_SHORT).show();
+                } else {
+                    Nguoidung.Nguoidung[1]=name;
+                    openActivity(Add_PasswordActivity.class);
+                }
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 }

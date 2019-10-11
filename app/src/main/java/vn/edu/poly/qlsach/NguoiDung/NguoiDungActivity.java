@@ -39,7 +39,6 @@ public class NguoiDungActivity extends BaseActivity {
 
         nguoiDungAdapter = new NguoiDungAdapter(this,nguoidungList);
 
-//        Toast.makeText(this,nguoidungList.size()+"",Toast.LENGTH_SHORT).show();
 
         rvList.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);

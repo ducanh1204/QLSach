@@ -68,10 +68,7 @@ public class ThongTinHDActivityActivity extends BaseActivity {
             } else {
                 long result = hoaDonDAO.updateHD(hoadon);
                 if (result > 0) {
-                    Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
                     openActivity(HoaDonActivity.class);
-                } else {
-                    Toast.makeText(this, "Cập nhật thất bạt", Toast.LENGTH_SHORT).show();
                 }
             }
 

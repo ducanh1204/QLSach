@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,7 +35,7 @@ public class HDCTActivity extends BaseActivity {
 
     private HDCTDAO hdctdao;
 
-    private String maHD;
+    static String maHD;
 
     @Override
     public void initView() {
@@ -42,13 +43,16 @@ public class HDCTActivity extends BaseActivity {
         fabHDCT = findViewById(R.id.fabHDCT);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         setTitle("Danh sách hóa đơn chi tiết");
+        try {
+            Intent intent = getIntent();
+            Bundle bundle = intent.getBundleExtra("HD");
+            maHD = bundle.getString("HD_maHD");
+        } catch (Exception e) {
+        }
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getBundleExtra("MAHD");
-        maHD = bundle.getString("maHD");
         hdctdao = new HDCTDAO(this);
         hdctList = hdctdao.show_HDCT(maHD);
-        hdctAdapter = new HDCTAdapter(this, hdctList,maHD);
+        hdctAdapter = new HDCTAdapter(this, hdctList, maHD);
 
         rvListHDCT.hasFixedSize();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);

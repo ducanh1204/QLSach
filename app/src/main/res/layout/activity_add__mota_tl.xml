@@ -15,6 +15,7 @@
         app:counterMaxLength="100">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/edt_addMota"
             android:layout_height="wrap_content"
             android:hint="@string/add_motaTL_hint_enter_motaTL"/>
     </com.google.android.material.textfield.TextInputLayout>

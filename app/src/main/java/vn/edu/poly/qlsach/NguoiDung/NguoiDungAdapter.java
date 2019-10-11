@@ -30,6 +30,7 @@ public class NguoiDungAdapter extends RecyclerView.Adapter<NguoiDungAdapter.Nguo
         this.nguoidungList = nguoidungList;
     }
 
+
     @NonNull
     @Override
     public NguoiDungHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -70,18 +71,21 @@ public class NguoiDungAdapter extends RecyclerView.Adapter<NguoiDungAdapter.Nguo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ThongTinNguoiDungActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("id",nguoidungList.get(position).getId());
-                bundle.putString("name",nguoidungList.get(position).getName());
-                bundle.putString("phone",nguoidungList.get(position).getPhoneNumber());
-                bundle.putString("address",nguoidungList.get(position).getAddress());
-                bundle.putString("pass",nguoidungList.get(position).getPassword());
-                intent.putExtra("User",bundle);
-                context.startActivity(intent);
+                showInforUser(position);
             }
         });
 
+    }
+    public void showInforUser(int i){
+        Intent intent = new Intent(context,ThongTinNguoiDungActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("id",nguoidungList.get(i).getId());
+        bundle.putString("name",nguoidungList.get(i).getName());
+        bundle.putString("phone",nguoidungList.get(i).getPhoneNumber());
+        bundle.putString("address",nguoidungList.get(i).getAddress());
+        bundle.putString("pass",nguoidungList.get(i).getPassword());
+        intent.putExtra("User",bundle);
+        context.startActivity(intent);
     }
 
     @Override
