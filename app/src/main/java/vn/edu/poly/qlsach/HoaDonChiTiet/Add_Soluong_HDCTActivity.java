@@ -32,7 +32,16 @@ public class Add_Soluong_HDCTActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        openActivity(ThongtinHDCTActivity.class);
+        switch (item.getItemId()) {
+            case android.R.id.home:
+//                openActivity(HDCTActivity.class);
+                return true;
+            case R.id.check_menu:
+                openActivity(ThongtinHDCTActivity.class);
+                return true;
+            default:
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 }

@@ -20,7 +20,7 @@ public class Add_maHDCTActivity extends BaseActivity {
     @Override
     public void initView() {
         setTitle("Mã hóa đơn chi tiết");
-        Drawable drawable= getResources().getDrawable(R.drawable.close_icon);
+        Drawable drawable = getResources().getDrawable(R.drawable.close_icon);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
 
@@ -29,13 +29,22 @@ public class Add_maHDCTActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.next_menu,menu);
+        inflater.inflate(R.menu.next_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        openActivity(Add_maSach_HDCTActivity.class);
+        switch (item.getItemId()) {
+            case android.R.id.home:
+//                openActivity(HDCTActivity.class);
+                return true;
+            case R.id.next_menu:
+                openActivity(Add_maSach_HDCTActivity.class);
+                return true;
+            default:
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 }

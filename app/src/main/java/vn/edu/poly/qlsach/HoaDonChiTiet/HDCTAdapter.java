@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,10 +22,12 @@ public class HDCTAdapter extends RecyclerView.Adapter<HDCTAdapter.HDCTHolder> {
 
     private Context context;
     private List<HDCT> hdctList;
+    private String maHD;
 
-    public HDCTAdapter(Context context, List<HDCT> hdctList) {
+    public HDCTAdapter(Context context, List<HDCT> hdctList, String maHD) {
         this.context = context;
         this.hdctList = hdctList;
+        this.maHD = maHD;
     }
 
     private HDCTDAO hdctdao;
@@ -68,6 +71,9 @@ public class HDCTAdapter extends RecyclerView.Adapter<HDCTAdapter.HDCTHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ThongtinHDCTActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("MA_HD",maHD);
+                intent.putExtra("MA_HD",bundle);
                 context.startActivity(intent);
             }
         });
