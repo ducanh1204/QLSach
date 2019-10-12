@@ -3,6 +3,7 @@ package vn.edu.poly.qlsach.HoaDonChiTiet;
 public class HDCT {
     public HDCT() {
     }
+    public static String [] HDCT = new String[4];
     public String maHDCT;
     public String maHD;
     public String maSach;

@@ -62,20 +62,20 @@ public class TheLoaiSachAdapter extends RecyclerView.Adapter<TheLoaiSachAdapter.
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (sachList.size() > 0) {
-                            for (int i = 0; i < sachList.size(); i++) {
-                                if (sachList.get(i).getMaTLSach().equals(theLoaiSachList.get(position).getMaTheLoai())) {
-                                    sachDAO.deleteBook(sachList.get(i).getMaSach());
-                                }
-                            }
+//                        if (sachList.size() > 0) {
+//                            for (int i = 0; i < sachList.size(); i++) {
+//                                if (sachList.get(i).getMaTLSach().equals(theLoaiSachList.get(position).getMaTheLoai())) {
+//                                    sachDAO.deleteBook(sachList.get(i).getMaSach());
+//                                }
+//                            }
+//                            theLoaiDAO.deleteTLSach(theLoaiSachList.get(position).getMaTheLoai());
+//                            theLoaiSachList.remove(position);
+//                            notifyDataSetChanged();
+//                        } else {
                             theLoaiDAO.deleteTLSach(theLoaiSachList.get(position).getMaTheLoai());
                             theLoaiSachList.remove(position);
                             notifyDataSetChanged();
-                        } else {
-                            theLoaiDAO.deleteTLSach(theLoaiSachList.get(position).getMaTheLoai());
-                            theLoaiSachList.remove(position);
-                            notifyDataSetChanged();
-                        }
+//                        }
                     }
                 });
                 builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {

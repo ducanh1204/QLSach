@@ -81,7 +81,6 @@ public class ThongtinHDCTActivity extends BaseActivity {
             }
         }
     }
-
     private void setSpinner() {
         maSach_spinnerAdapter = new MaSach_SpinnerAdapter(this, sachList);
         spnMaSach.setAdapter(maSach_spinnerAdapter);

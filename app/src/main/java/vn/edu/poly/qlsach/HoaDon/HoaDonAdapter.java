@@ -21,8 +21,8 @@ import vn.edu.poly.qlsach.R;
 
 public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHolder> {
 
-    Context context;
-    List<Hoadon> hoadonList;
+    private Context context;
+    private List<Hoadon> hoadonList;
 
     public HoaDonAdapter(Context context, List<Hoadon> hoadonList) {
         this.context = context;
@@ -32,25 +32,21 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHold
     @NonNull
     @Override
     public HoaDonHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.row_hoadon,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.row_hoadon, parent, false);
         return new HoaDonHolder(view);
     }
 
     private HoaDonDAO hoaDonDAO;
+
     @Override
-    public void onBindViewHolder(@NonNull HoaDonHolder holder,final int position) {
+    public void onBindViewHolder(@NonNull HoaDonHolder holder, final int position) {
         hoaDonDAO = new HoaDonDAO(context);
         holder.tvmaHD.setText(hoadonList.get(position).getMaHoaDon());
         holder.tvngayMua.setText(hoadonList.get(position).getNgayMua());
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,ThongTinHDActivityActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("maHD",hoadonList.get(position).getMaHoaDon());
-                bundle.putString("ngayMua",hoadonList.get(position).getNgayMua());
-                intent.putExtra("HD",bundle);
-                context.startActivity(intent);
+                showInforHD(position);
             }
         });
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +65,6 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHold
                 builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                     }
                 });
                 AlertDialog alertDialog = builder.create();
@@ -80,12 +75,19 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHold
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, HDCTActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("HD_maHD",hoadonList.get(position).getMaHoaDon());
-                intent.putExtra("HD",bundle);
+                HDCTActivity.maHD = hoadonList.get(position).getMaHoaDon();
                 context.startActivity(intent);
             }
         });
+    }
+
+    public void showInforHD(int i) {
+        Intent intent = new Intent(context, ThongTinHDActivityActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("maHD", hoadonList.get(i).getMaHoaDon());
+        bundle.putString("ngayMua", hoadonList.get(i).getNgayMua());
+        intent.putExtra("HD", bundle);
+        context.startActivity(intent);
     }
 
     @Override
@@ -94,14 +96,15 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHold
     }
 
     public class HoaDonHolder extends RecyclerView.ViewHolder {
-        TextView tvmaHD,tvngayMua;
-        ImageView imgEdit,imgDelete;
+        TextView tvmaHD, tvngayMua;
+        ImageView imgEdit, imgDelete;
+
         public HoaDonHolder(@NonNull View itemView) {
             super(itemView);
-            tvmaHD=itemView.findViewById(R.id.tvMaHD);
-            tvngayMua=itemView.findViewById(R.id.tvNgayMua);
-            imgDelete=itemView.findViewById(R.id.imgDeleteHD);
-            imgEdit=itemView.findViewById(R.id.imgEditHD);
+            tvmaHD = itemView.findViewById(R.id.tvMaHD);
+            tvngayMua = itemView.findViewById(R.id.tvNgayMua);
+            imgDelete = itemView.findViewById(R.id.imgDeleteHD);
+            imgEdit = itemView.findViewById(R.id.imgEditHD);
 
         }
     }

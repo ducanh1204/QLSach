@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,13 +23,12 @@ public class HDCTAdapter extends RecyclerView.Adapter<HDCTAdapter.HDCTHolder> {
 
     private Context context;
     private List<HDCT> hdctList;
-    private String maHD;
 
-    public HDCTAdapter(Context context, List<HDCT> hdctList, String maHD) {
+    public HDCTAdapter(Context context, List<HDCT> hdctList) {
         this.context = context;
         this.hdctList = hdctList;
-        this.maHD = maHD;
     }
+
 
     private HDCTDAO hdctdao;
     @NonNull
@@ -70,16 +70,19 @@ public class HDCTAdapter extends RecyclerView.Adapter<HDCTAdapter.HDCTHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ThongtinHDCTActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("HDCT_maHDCT",hdctList.get(position).getMaHDCT());
-                bundle.putString("HDCT_maHD",maHD);
-                bundle.putString("HDCT_maSach",hdctList.get(position).getMaSach());
-                bundle.putString("HDCT_soLuong",hdctList.get(position).getSoLuong()+"");
-                intent.putExtra("HDCT",bundle);
-                context.startActivity(intent);
+               showInforHDCT(position);
             }
         });
+    }
+    public void showInforHDCT(int i){
+        Intent intent = new Intent(context, ThongtinHDCTActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("HDCT_maHDCT",hdctList.get(i).getMaHDCT());
+        bundle.putString("HDCT_maHD",HDCTActivity.maHD);
+        bundle.putString("HDCT_maSach",hdctList.get(i).getMaSach());
+        bundle.putString("HDCT_soLuong",hdctList.get(i).getSoLuong()+"");
+        intent.putExtra("HDCT",bundle);
+        context.startActivity(intent);
     }
 
     @Override

@@ -3,19 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp">
+    android:layout_marginRight="16dp"
+    android:orientation="vertical">
+
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_marginTop="160dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
         app:counterEnabled="true"
-        app:counterMaxLength="100">
+        app:counterMaxLength="12">
+
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_addMaHDCT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/add_HDCT_hint_enter_maHDCT"/>
+            android:hint="@string/add_HDCT_hint_enter_maHDCT"
+            android:textColor="@color/colorPrimary" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

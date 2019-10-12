@@ -11,10 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:counterEnabled="true"
-        app:counterMaxLength="100">
+        app:counterMaxLength="12">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/edt_addMaHD"
             android:hint="@string/add_maHD_hint_enter_maHD"/>
     </com.google.android.material.textfield.TextInputLayout>
 

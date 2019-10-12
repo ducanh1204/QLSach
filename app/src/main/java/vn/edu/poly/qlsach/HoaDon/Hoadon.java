@@ -3,6 +3,7 @@ package vn.edu.poly.qlsach.HoaDon;
 public class Hoadon {
     public Hoadon() {
     }
+    public static String [] Hoadon = new String[2];
     public String maHoaDon;
     public String ngayMua;
 

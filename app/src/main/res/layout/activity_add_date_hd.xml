@@ -29,7 +29,7 @@
             android:hint="@string/inforHD_hint_enter_tvDate">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_ngayMua"
+                android:id="@+id/edt_addNgayMua"
                 android:textColor="@color/textblack"
                 android:enabled="false"
                 android:layout_width="match_parent"
