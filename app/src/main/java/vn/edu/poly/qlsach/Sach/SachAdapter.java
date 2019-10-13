@@ -16,13 +16,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import vn.edu.poly.qlsach.HoaDonChiTiet.HDCT;
+import vn.edu.poly.qlsach.HoaDonChiTiet.HDCTAdapter;
+import vn.edu.poly.qlsach.HoaDonChiTiet.HDCTDAO;
 import vn.edu.poly.qlsach.R;
 
 public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
 
 
-    Context context;
-    List<Sach> sachList;
+    private Context context;
+    private List<Sach> sachList;
+    private HDCTDAO hdctdao;
+    private List<HDCT> hdctList;
 
     public SachAdapter(Context context, List<Sach> sachList) {
         this.context = context;
@@ -41,6 +46,8 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
     @Override
     public void onBindViewHolder(@NonNull SachHolder holder, final int position) {
         sachDAO = new SachDAO(context);
+        hdctdao = new HDCTDAO(context);
+        hdctList = hdctdao.getAllHDCT();
         holder.tvtenSach.setText(sachList.get(position).getTenSach());
         holder.tvsoluong.setText(sachList.get(position).getSoLuong() + "");
         holder.tvgia.setText(sachList.get(position).getGiaBia());
@@ -52,6 +59,11 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        for (int i =0;i<hdctList.size();i++){
+                            if(sachList.get(position).getMaSach().equals(hdctList.get(i).getMaSach())){
+                                hdctdao.deleteHDCT(hdctList.get(i).getMaHDCT());
+                            }
+                        }
                         sachDAO.deleteBook(sachList.get(position).getMaSach());
                         sachList.remove(position);
                         notifyDataSetChanged();

@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import vn.edu.poly.qlsach.HoaDonChiTiet.HDCT;
+import vn.edu.poly.qlsach.HoaDonChiTiet.HDCTDAO;
 import vn.edu.poly.qlsach.R;
 import vn.edu.poly.qlsach.Sach.Sach;
 import vn.edu.poly.qlsach.Sach.SachAdapter;
@@ -24,8 +26,8 @@ import vn.edu.poly.qlsach.Sach.SachDAO;
 public class TheLoaiSachAdapter extends RecyclerView.Adapter<TheLoaiSachAdapter.TheLoaiSachHolder> {
 
 
-    Context context;
-    List<TheLoaiSach> theLoaiSachList;
+    private Context context;
+    private List<TheLoaiSach> theLoaiSachList;
 
     public TheLoaiSachAdapter(Context context, List<TheLoaiSach> theLoaiSachList) {
         this.context = context;
@@ -43,15 +45,20 @@ public class TheLoaiSachAdapter extends RecyclerView.Adapter<TheLoaiSachAdapter.
 
     private SachDAO sachDAO;
     private List<Sach> sachList;
-    private SachAdapter sachAdapter;
+
+    private HDCTDAO hdctdao;
+    private List<HDCT> hdctList;
+
 
     @Override
     public void onBindViewHolder(@NonNull TheLoaiSachHolder holder, final int position) {
 
+        theLoaiDAO = new TheLoaiDAO(context);
         sachDAO = new SachDAO(context);
         sachList = sachDAO.getAll();
-        sachAdapter = new SachAdapter(context, sachList);
-        theLoaiDAO = new TheLoaiDAO(context);
+        hdctdao = new HDCTDAO(context);
+        hdctList = hdctdao.getAllHDCT();
+
         holder.tvMaTL.setText(theLoaiSachList.get(position).getMaTheLoai());
         holder.tvTenTL.setText(theLoaiSachList.get(position).getTenTheLoai());
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
@@ -62,20 +69,19 @@ public class TheLoaiSachAdapter extends RecyclerView.Adapter<TheLoaiSachAdapter.
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-//                        if (sachList.size() > 0) {
-//                            for (int i = 0; i < sachList.size(); i++) {
-//                                if (sachList.get(i).getMaTLSach().equals(theLoaiSachList.get(position).getMaTheLoai())) {
-//                                    sachDAO.deleteBook(sachList.get(i).getMaSach());
-//                                }
-//                            }
-//                            theLoaiDAO.deleteTLSach(theLoaiSachList.get(position).getMaTheLoai());
-//                            theLoaiSachList.remove(position);
-//                            notifyDataSetChanged();
-//                        } else {
-                            theLoaiDAO.deleteTLSach(theLoaiSachList.get(position).getMaTheLoai());
-                            theLoaiSachList.remove(position);
-                            notifyDataSetChanged();
-//                        }
+                        for (int i = 0; i < sachList.size(); i++) {
+                            if (theLoaiSachList.get(position).getMaTheLoai().equals(sachList.get(i).getMaTLSach())) {
+                                for (int j = 0; j < hdctList.size(); j++) {
+                                    if (sachList.get(i).getMaSach().equals(hdctList.get(j).getMaSach())) {
+                                        hdctdao.deleteHDCT(hdctList.get(j).getMaHDCT());
+                                    }
+                                }
+                                sachDAO.deleteBook(sachList.get(i).getMaSach());
+                            }
+                        }
+                        theLoaiDAO.deleteTLSach(theLoaiSachList.get(position).getMaTheLoai());
+                        theLoaiSachList.remove(position);
+                        notifyDataSetChanged();
                     }
                 });
                 builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {

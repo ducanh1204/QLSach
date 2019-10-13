@@ -59,6 +59,42 @@ public class HDCTDAO {
         return hoadonList;
     }
 
+
+    public List<HDCT> getAllHDCT() {
+        List<HDCT> hoadonList = new ArrayList<>();
+
+        SQLiteDatabase sqLiteDatabase = mySqliteOpenHelper.getReadableDatabase();
+
+        String SQL = "SELECT * FROM " + HDCT_TABLE;
+
+        Cursor cursor = sqLiteDatabase.rawQuery(SQL, null);
+
+        if (cursor != null) {
+            if (cursor.getCount() > 0) {
+
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast()) {
+
+                    HDCT hdct = new HDCT();
+
+                    hdct.setMaHDCT(cursor.getString(cursor.getColumnIndex(MA_HDCT)));
+                    hdct.setMaHD(cursor.getString(cursor.getColumnIndex(MA_HD)));
+                    hdct.setMaSach(cursor.getString(cursor.getColumnIndex(MA_SACH)));
+                    hdct.setSoLuong(Integer.parseInt(cursor.getString(cursor.getColumnIndex(SO_LUONG))));
+
+                    hoadonList.add(hdct);
+                    cursor.moveToNext();
+
+                }
+                cursor.close();
+            }
+        }
+
+        return hoadonList;
+    }
+
+
+
     public long insertHDCT(HDCT hdct) {
         SQLiteDatabase sqLiteDatabase = mySqliteOpenHelper.getWritableDatabase();
 

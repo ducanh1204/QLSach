@@ -16,7 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import vn.edu.poly.qlsach.HoaDonChiTiet.HDCT;
 import vn.edu.poly.qlsach.HoaDonChiTiet.HDCTActivity;
+import vn.edu.poly.qlsach.HoaDonChiTiet.HDCTAdapter;
+import vn.edu.poly.qlsach.HoaDonChiTiet.HDCTDAO;
 import vn.edu.poly.qlsach.R;
 
 public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHolder> {
@@ -37,10 +40,14 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHold
     }
 
     private HoaDonDAO hoaDonDAO;
+    private HDCTDAO hdctdao;
+    private List<HDCT> hdctList;
 
     @Override
     public void onBindViewHolder(@NonNull HoaDonHolder holder, final int position) {
         hoaDonDAO = new HoaDonDAO(context);
+        hdctdao = new HDCTDAO(context);
+        hdctList = hdctdao.show_HDCT(hoadonList.get(position).getMaHoaDon());
         holder.tvmaHD.setText(hoadonList.get(position).getMaHoaDon());
         holder.tvngayMua.setText(hoadonList.get(position).getNgayMua());
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +64,11 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHold
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        for(int i=0;i<hdctList.size();i++){
+                            if(hoadonList.get(position).getMaHoaDon().equals(hdctList.get(i).getMaHD())){
+                                hdctdao.deleteHDCT(hdctList.get(i).getMaHDCT());
+                            }
+                        }
                         hoaDonDAO.deleteHD(hoadonList.get(position).getMaHoaDon());
                         hoadonList.remove(position);
                         notifyDataSetChanged();
