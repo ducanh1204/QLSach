@@ -25,7 +25,7 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        setTitle("Quản lý Sác");
+        setTitle("Quản lý Sách");
     }
 
     @Override
