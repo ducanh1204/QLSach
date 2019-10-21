@@ -11,11 +11,13 @@ import vn.edu.poly.qlsach.Home.BaseActivity;
 import vn.edu.poly.qlsach.R;
 import vn.edu.poly.qlsach.Sach.Sach;
 import vn.edu.poly.qlsach.Sach.SachAdapter;
+import vn.edu.poly.qlsach.Sach.SachDAO;
 
 public class SachBanChayActivity extends BaseActivity {
-    RecyclerView rvList;
-    SachAdapter sachAdapter;
-    List<Sach> sachList;
+    private RecyclerView rvList;
+    private SachAdapter sachAdapter;
+    private List<Sach> sachList;
+    private SachDAO sachDAO;
 
     @Override
     public int setLayout() {
@@ -27,14 +29,11 @@ public class SachBanChayActivity extends BaseActivity {
         setTitle("Sách bán chạy");
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         rvList = findViewById(R.id.rvList);
+        sachDAO = new SachDAO(this);
+        sachList = sachDAO.getAll();
+        sachAdapter = new SachAdapter(this, sachList);
 
-        sachList = new ArrayList<>();
-        for(int i=0;i<10;i++){
-            sachList.add(new Sach("Người nam châm","s006","Android cơ bản","ducanh","ducanh",200,"100000"));
-        }
-        sachAdapter = new SachAdapter(this,sachList);
-
-        StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         rvList.setLayoutManager(gridLayoutManager);
         rvList.setAdapter(sachAdapter);
     }
