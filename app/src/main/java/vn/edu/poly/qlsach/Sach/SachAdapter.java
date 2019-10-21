@@ -8,12 +8,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import vn.edu.poly.qlsach.HoaDonChiTiet.HDCT;
@@ -21,17 +24,19 @@ import vn.edu.poly.qlsach.HoaDonChiTiet.HDCTAdapter;
 import vn.edu.poly.qlsach.HoaDonChiTiet.HDCTDAO;
 import vn.edu.poly.qlsach.R;
 
-public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
+public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> implements Filterable {
 
 
     private Context context;
     private List<Sach> sachList;
     private HDCTDAO hdctdao;
     private List<HDCT> hdctList;
+    private List<Sach> sachList2;
 
     public SachAdapter(Context context, List<Sach> sachList) {
         this.context = context;
         this.sachList = sachList;
+        this.sachList2=new ArrayList<>(sachList);
     }
 
     @NonNull
@@ -119,4 +124,37 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
 
         }
     }
+
+    private Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Sach> sachFillter = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0) {
+                sachFillter.addAll(sachList2);
+            } else {
+                String fillterParent = constraint.toString().toLowerCase().trim();
+                for (Sach item : sachList2) {
+                    if (item.getTenSach().toLowerCase().contains(fillterParent)) {
+                        sachFillter.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = sachFillter;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            sachList.clear();
+            sachList.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
+
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
+
 }

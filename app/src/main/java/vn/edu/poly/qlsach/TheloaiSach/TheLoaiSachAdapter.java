@@ -8,12 +8,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import vn.edu.poly.qlsach.HoaDonChiTiet.HDCT;
@@ -23,15 +26,17 @@ import vn.edu.poly.qlsach.Sach.Sach;
 import vn.edu.poly.qlsach.Sach.SachAdapter;
 import vn.edu.poly.qlsach.Sach.SachDAO;
 
-public class TheLoaiSachAdapter extends RecyclerView.Adapter<TheLoaiSachAdapter.TheLoaiSachHolder> {
+public class TheLoaiSachAdapter extends RecyclerView.Adapter<TheLoaiSachAdapter.TheLoaiSachHolder> implements Filterable {
 
 
     private Context context;
     private List<TheLoaiSach> theLoaiSachList;
+    private List<TheLoaiSach> theLoaiSachList2;
 
     public TheLoaiSachAdapter(Context context, List<TheLoaiSach> theLoaiSachList) {
         this.context = context;
         this.theLoaiSachList = theLoaiSachList;
+        this.theLoaiSachList2 = new ArrayList<>(theLoaiSachList);
     }
 
     @NonNull
@@ -129,4 +134,40 @@ public class TheLoaiSachAdapter extends RecyclerView.Adapter<TheLoaiSachAdapter.
             imgDelete = itemView.findViewById(R.id.imgDeleteTL);
         }
     }
+
+
+    private Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<TheLoaiSach> theLoaiFillter = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0) {
+                theLoaiFillter.addAll(theLoaiSachList2);
+            } else {
+                String fillterParent = constraint.toString().toLowerCase().trim();
+                for (TheLoaiSach item : theLoaiSachList2) {
+                    if (item.getTenTheLoai().toLowerCase().contains(fillterParent)) {
+                        theLoaiFillter.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = theLoaiFillter;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            theLoaiSachList.clear();
+            theLoaiSachList.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
+
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
+
+
+
 }

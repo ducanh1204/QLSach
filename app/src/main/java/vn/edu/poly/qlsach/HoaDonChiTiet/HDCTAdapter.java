@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,18 +17,21 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import vn.edu.poly.qlsach.R;
 
-public class HDCTAdapter extends RecyclerView.Adapter<HDCTAdapter.HDCTHolder> {
+public class HDCTAdapter extends RecyclerView.Adapter<HDCTAdapter.HDCTHolder> implements Filterable {
 
     private Context context;
     private List<HDCT> hdctList;
+    private List<HDCT> hdctList2;
 
     public HDCTAdapter(Context context, List<HDCT> hdctList) {
         this.context = context;
         this.hdctList = hdctList;
+        this.hdctList2 = new ArrayList<>(hdctList);
     }
 
 
@@ -100,5 +105,38 @@ public class HDCTAdapter extends RecyclerView.Adapter<HDCTAdapter.HDCTHolder> {
             tvSoluong = itemView.findViewById(R.id.tvSoluong);
             imgDeleteHDCT = itemView.findViewById(R.id.imgDeleteHDCT);
         }
+    }
+
+
+    private Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<HDCT> hdctFillter = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0) {
+                hdctFillter.addAll(hdctList2);
+            } else {
+                String fillterParent = constraint.toString().toLowerCase().trim();
+                for (HDCT item : hdctList2) {
+                    if (item.getMaHDCT().toLowerCase().contains(fillterParent)) {
+                        hdctFillter.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = hdctFillter;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            hdctList.clear();
+            hdctList.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
+
+    @Override
+    public Filter getFilter() {
+        return filter;
     }
 }

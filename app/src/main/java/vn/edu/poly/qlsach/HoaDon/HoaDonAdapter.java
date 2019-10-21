@@ -8,12 +8,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import vn.edu.poly.qlsach.HoaDonChiTiet.HDCT;
@@ -22,14 +25,16 @@ import vn.edu.poly.qlsach.HoaDonChiTiet.HDCTAdapter;
 import vn.edu.poly.qlsach.HoaDonChiTiet.HDCTDAO;
 import vn.edu.poly.qlsach.R;
 
-public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHolder> {
+public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHolder> implements Filterable {
 
     private Context context;
     private List<Hoadon> hoadonList;
+    private List<Hoadon> hoadonList2;
 
     public HoaDonAdapter(Context context, List<Hoadon> hoadonList) {
         this.context = context;
         this.hoadonList = hoadonList;
+        this.hoadonList2 = new ArrayList<>(hoadonList);
     }
 
     @NonNull
@@ -120,4 +125,38 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonHold
 
         }
     }
+
+
+    private Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Hoadon> hoadonFillter = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0) {
+                hoadonFillter.addAll(hoadonList2);
+            } else {
+                String fillterParent = constraint.toString().toLowerCase().trim();
+                for (Hoadon item : hoadonList2) {
+                    if (item.getMaHoaDon().toLowerCase().contains(fillterParent)) {
+                        hoadonFillter.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = hoadonFillter;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            hoadonList.clear();
+            hoadonList.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
+
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
+
 }

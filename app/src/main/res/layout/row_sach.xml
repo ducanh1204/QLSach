@@ -15,7 +15,7 @@
             android:id="@+id/imgbiaSach"
             android:layout_width="141dp"
             android:layout_height="222dp"
-            android:src="@drawable/img_sach" />
+            android:src="@drawable/book" />
 
         <TextView
             android:id="@+id/tvTitle_book"
