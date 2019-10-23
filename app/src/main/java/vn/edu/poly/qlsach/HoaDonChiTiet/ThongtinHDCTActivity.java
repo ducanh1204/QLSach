@@ -37,6 +37,7 @@ public class ThongtinHDCTActivity extends BaseActivity {
     private List<Sach> sachList;
     private MaSach_SpinnerAdapter maSach_spinnerAdapter;
     private HDCTDAO hdctdao;
+    private int slSach;
 
     @Override
     public void initView() {
@@ -56,6 +57,7 @@ public class ThongtinHDCTActivity extends BaseActivity {
                 Sach sach = sachList.get(position);
                 maSach = sach.getMaSach();
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -81,6 +83,7 @@ public class ThongtinHDCTActivity extends BaseActivity {
             }
         }
     }
+
     private void setSpinner() {
         maSach_spinnerAdapter = new MaSach_SpinnerAdapter(this, sachList);
         spnMaSach.setAdapter(maSach_spinnerAdapter);
@@ -100,6 +103,11 @@ public class ThongtinHDCTActivity extends BaseActivity {
             case R.id.check_menu:
                 maHDCT = edtmaHDCT.getText().toString().trim();
                 soLuong = edtsoLuongHDCT.getText().toString().trim();
+                for (int i = 0; i < sachList.size(); i++) {
+                    if (maSach.equals(sachList.get(i).getMaSach())) {
+                        slSach = sachList.get(i).getSoLuong();
+                    }
+                }
 
                 HDCT hdct = new HDCT();
                 hdct.setMaHDCT(maHDCT);
@@ -112,9 +120,13 @@ public class ThongtinHDCTActivity extends BaseActivity {
                 if (maHDCT.equals("") || soLuong.equals("")) {
                     Toast.makeText(this, "Không bỏ trống dữ liệu", Toast.LENGTH_SHORT).show();
                 } else {
-                    long result = hdctdao.updateHDCT(hdct);
-                    if (result > 0) {
-                        openActivity(HDCTActivity.class);
+                    if (slSach < Integer.parseInt(soLuong)) {
+                        Toast.makeText(this, "Sách này tối đa chỉ còn " + slSach + " quyển, mời nhập lại", Toast.LENGTH_SHORT).show();
+                    } else {
+                        long result = hdctdao.updateHDCT(hdct);
+                        if (result > 0) {
+                            openActivity(HDCTActivity.class);
+                        }
                     }
                 }
                 break;

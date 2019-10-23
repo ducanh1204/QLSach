@@ -14,6 +14,8 @@ import java.util.List;
 
 import vn.edu.poly.qlsach.Home.BaseActivity;
 import vn.edu.poly.qlsach.R;
+import vn.edu.poly.qlsach.Sach.Sach;
+import vn.edu.poly.qlsach.Sach.SachDAO;
 
 public class Add_Soluong_HDCTActivity extends BaseActivity {
 
@@ -29,6 +31,9 @@ public class Add_Soluong_HDCTActivity extends BaseActivity {
     private List<HDCT> hdctList;
     private int position;
     private HDCT hdct;
+    private int slSach;
+    private SachDAO sachDAO;
+    private List<Sach> sachList;
 
     @Override
     public void initView() {
@@ -41,6 +46,8 @@ public class Add_Soluong_HDCTActivity extends BaseActivity {
         hdctList = hdctdao.show_HDCT(HDCTActivity.maHD);
         hdctAdapter = new HDCTAdapter(this, hdctList);
         position = hdctList.size();
+        sachDAO = new SachDAO(this);
+        sachList = sachDAO.getAll();
     }
 
     @Override
@@ -55,23 +62,32 @@ public class Add_Soluong_HDCTActivity extends BaseActivity {
         switch (item.getItemId()) {
             case R.id.check_menu:
                 soLuong = edt_addSoluong_hdct.getText().toString().trim();
+                for (int i = 0; i < sachList.size(); i++) {
+                    if (sachList.get(i).getMaSach().equals(HDCT.HDCT[2])) {
+                        slSach = sachList.get(i).getSoLuong();
+                    }
+                }
                 if (soLuong.equals("")) {
                     Toast.makeText(this, "Không để trống dữ liệu", Toast.LENGTH_SHORT).show();
                 } else {
-                    HDCT.HDCT[3] = soLuong;
-                    hdct = new HDCT();
-                    hdct.setMaHDCT(HDCT.HDCT[0]);
-                    hdct.setMaHD(HDCT.HDCT[1]);
-                    hdct.setMaSach(HDCT.HDCT[2]);
-                    hdct.setSoLuong(Integer.parseInt(HDCT.HDCT[3]));
-                    long result = hdctdao.insertHDCT(hdct);
-                    if (result > 0) {
-                        Toast.makeText(this, "Thêm thành công", Toast.LENGTH_SHORT).show();
-                        hdctList.add(hdct);
-                        hdctAdapter.notifyDataSetChanged();
-                        hdctAdapter.showInforHDCT(position);
+                    if (Integer.parseInt(soLuong) > slSach) {
+                        Toast.makeText(this, "Sách này tối đa chỉ còn " + slSach + " quyển, mời nhập lại", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(this, "Thêm thất bại", Toast.LENGTH_SHORT).show();
+                        HDCT.HDCT[3] = soLuong;
+                        hdct = new HDCT();
+                        hdct.setMaHDCT(HDCT.HDCT[0]);
+                        hdct.setMaHD(HDCT.HDCT[1]);
+                        hdct.setMaSach(HDCT.HDCT[2]);
+                        hdct.setSoLuong(Integer.parseInt(HDCT.HDCT[3]));
+                        long result = hdctdao.insertHDCT(hdct);
+                        if (result > 0) {
+                            Toast.makeText(this, "Thêm thành công", Toast.LENGTH_SHORT).show();
+                            hdctList.add(hdct);
+                            hdctAdapter.notifyDataSetChanged();
+                            hdctAdapter.showInforHDCT(position);
+                        } else {
+                            Toast.makeText(this, "Thêm thất bại", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
                 break;
