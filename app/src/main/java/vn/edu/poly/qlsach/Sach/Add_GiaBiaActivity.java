@@ -55,7 +55,6 @@ public class Add_GiaBiaActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        openActivity(ThongTinSachActivity.class);
         switch (item.getItemId()) {
             case R.id.check_menu:
                 gia = edt_addGiabia.getText().toString().trim();
