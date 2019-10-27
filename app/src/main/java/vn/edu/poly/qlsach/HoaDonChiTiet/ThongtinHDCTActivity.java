@@ -1,28 +1,23 @@
 package vn.edu.poly.qlsach.HoaDonChiTiet;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
 
-import vn.edu.poly.qlsach.HoaDon.Hoadon;
 import vn.edu.poly.qlsach.Home.BaseActivity;
 import vn.edu.poly.qlsach.R;
 import vn.edu.poly.qlsach.Sach.Sach;
-import vn.edu.poly.qlsach.Sach.SachActivity;
 import vn.edu.poly.qlsach.Sach.SachDAO;
 
 public class ThongtinHDCTActivity extends BaseActivity {
