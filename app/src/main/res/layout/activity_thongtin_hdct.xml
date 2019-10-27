@@ -21,42 +21,43 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_maHDCT"
-                android:enabled="false"
-                android:textColor="@color/colorPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/inforHDCT_hint_enter_maHDCT" />
+                android:enabled="false"
+                android:hint="@string/inforHDCT_hint_enter_maHDCT"
+                android:textColor="@color/colorPrimary" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:textSize="15sp"
-            android:layout_marginLeft="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="16dp"
-            android:hint="@string/inforBook_hint_enter_maSach" />
+            android:hint="@string/inforBook_hint_enter_maSach"
+            android:textSize="15sp" />
 
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spnmaSach"
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_soLuong"
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             app:counterEnabled="true"
             app:counterMaxLength="100">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_soLuongHDCT"
                 android:layout_width="match_parent"
-                android:inputType="number"
                 android:layout_height="wrap_content"
-                android:hint="@string/inforHDCT_hint_enter_soluong" />
+                android:hint="@string/inforHDCT_hint_enter_soluong"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
 </ScrollView>
