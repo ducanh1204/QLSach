@@ -1,37 +1,23 @@
 package vn.edu.poly.qlsach.SachBanChay;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import vn.edu.poly.qlsach.HoaDonChiTiet.HDCT;
-import vn.edu.poly.qlsach.HoaDonChiTiet.HDCTDAO;
 import vn.edu.poly.qlsach.R;
-import vn.edu.poly.qlsach.Sach.Sach;
-import vn.edu.poly.qlsach.Sach.SachDAO;
-import vn.edu.poly.qlsach.Sach.ThongTinSachActivity;
 
 public class SachBanChayAdapter extends RecyclerView.Adapter<SachBanChayAdapter.SachHolder> {
 
 
     private Context context;
     private List<SachBanChay> sachBanChayList;
-    private SachDAO sachDAO;
+    private SachBanChayDAO sachBanChayDAO;
 
     public SachBanChayAdapter(Context context, List<SachBanChay> sachBanChayList) {
         this.context = context;
@@ -48,8 +34,8 @@ public class SachBanChayAdapter extends RecyclerView.Adapter<SachBanChayAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull SachHolder holder, final int position) {
-        sachDAO = new SachDAO(context);
-        sachBanChayList = sachDAO.getAllSachBanChay();
+        sachBanChayDAO = new SachBanChayDAO(context);
+        sachBanChayList = sachBanChayDAO.getAllSachBanChay();
         holder.tvmaSach.setText(sachBanChayList.get(position).getMaSach());
         holder.tvsumSL.setText(sachBanChayList.get(position).getSoLuong()+"");
 

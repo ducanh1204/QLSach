@@ -9,13 +9,12 @@ import java.util.List;
 
 import vn.edu.poly.qlsach.Home.BaseActivity;
 import vn.edu.poly.qlsach.R;
-import vn.edu.poly.qlsach.Sach.SachDAO;
 
 public class SachBanChayActivity extends BaseActivity {
     private RecyclerView rvList;
     private SachBanChayAdapter sachBanChayAdapter;
     private List<SachBanChay> sachBanChayList;
-    private SachDAO sachDAO;
+    private SachBanChayDAO sachBanChayDAO;
 
     @Override
     public int setLayout() {
@@ -27,8 +26,8 @@ public class SachBanChayActivity extends BaseActivity {
         setTitle("Sách bán chạy");
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         rvList = findViewById(R.id.rvList);
-        sachDAO = new SachDAO(this);
-        sachBanChayList = sachDAO.getAllSachBanChay();
+        sachBanChayDAO = new SachBanChayDAO(this);
+        sachBanChayList = sachBanChayDAO.getAllSachBanChay();
         sachBanChayAdapter = new SachBanChayAdapter(this, sachBanChayList);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
