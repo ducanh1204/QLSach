@@ -39,7 +39,7 @@ public class SachBanChayDAO {
 
         SQLiteDatabase sqLiteDatabase = mySqliteOpenHelper.getReadableDatabase();
 
-        String SQL = "SELECT s.maSach , sum(h.soLuong) FROM Sach s JOIN HDCT h ON s.maSach=h.maSach GROUP BY h.maSach ORDER BY h.soLuong DESC ";
+        String SQL = "SELECT s.maSach , sum(h.soLuong) FROM Sach s JOIN HDCT h ON s.maSach=h.maSach GROUP BY h.maSach ORDER BY sum(h.soLuong) DESC ";
 
         Cursor cursor = sqLiteDatabase.rawQuery(SQL, null);
 
