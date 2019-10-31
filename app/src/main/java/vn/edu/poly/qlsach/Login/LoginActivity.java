@@ -29,6 +29,8 @@ public class LoginActivity extends BaseActivity {
         mySqliteOpenHelper.createDataBase();
         edtpass = findViewById(R.id.edtpassWord);
         edtuser = findViewById(R.id.edtuserName);
+        edtuser.setText("admin");
+        edtpass.setText("admin");
 
     }
 

@@ -71,9 +71,10 @@
     <string name="add_HDCT_hint_enter_soluong">Nhập số lượng</string>
     <string name="inforHDCT_hint_enter_maHDCT">Mã hóa đơn chi tiết</string>
     <string name="HDCT_thanhtien">Thành tiền :</string>
-    <string name="SachBanChay_title">Top Sách bán chạy trong tuần này</string>
+    <string name="SachBanChay_title">Top Sách bán chạy</string>
     <string name="HDCT_title_count">Số lượng</string>
     <string name="maHDCT_title">Mã</string>
     <string name="inforHDT_maHD">Mã hóa đơn</string>
     <string name="inforHDCT_hint_enter_soluong">Số lượng</string>
+    <string name="SachBanChay_sumsl">Tổng số lượng</string>
 </resources>

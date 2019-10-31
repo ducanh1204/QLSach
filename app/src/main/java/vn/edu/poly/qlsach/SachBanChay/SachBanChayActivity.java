@@ -1,22 +1,20 @@
 package vn.edu.poly.qlsach.SachBanChay;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import vn.edu.poly.qlsach.Home.BaseActivity;
 import vn.edu.poly.qlsach.R;
-import vn.edu.poly.qlsach.Sach.Sach;
-import vn.edu.poly.qlsach.Sach.SachAdapter;
 import vn.edu.poly.qlsach.Sach.SachDAO;
 
 public class SachBanChayActivity extends BaseActivity {
     private RecyclerView rvList;
-    private SachAdapter sachAdapter;
-    private List<Sach> sachList;
+    private SachBanChayAdapter sachBanChayAdapter;
+    private List<SachBanChay> sachBanChayList;
     private SachDAO sachDAO;
 
     @Override
@@ -30,11 +28,11 @@ public class SachBanChayActivity extends BaseActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         rvList = findViewById(R.id.rvList);
         sachDAO = new SachDAO(this);
-        sachList = sachDAO.getAll();
-        sachAdapter = new SachAdapter(this, sachList);
+        sachBanChayList = sachDAO.getAllSachBanChay();
+        sachBanChayAdapter = new SachBanChayAdapter(this, sachBanChayList);
 
-        StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        rvList.setLayoutManager(gridLayoutManager);
-        rvList.setAdapter(sachAdapter);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        rvList.setLayoutManager(linearLayoutManager);
+        rvList.setAdapter(sachBanChayAdapter);
     }
 }
